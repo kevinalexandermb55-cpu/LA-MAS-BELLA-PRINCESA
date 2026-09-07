@@ -1,0 +1,11 @@
+{
+  "name": "Diario de mi Princesa Lore",
+  "short_name": "Mi Lore",
+  "description": "Mi diario de mi Princesa Lore",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#f8d7e8",
+  "background_color": "#fff5fa"
+}

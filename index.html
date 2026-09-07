@@ -1,0 +1,6687 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#7b2cbf">
+
+<title>Reino de la Princesa Lore 👑💜</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
+:root{
+    --purple-dark:#32134d;
+    --purple:#7b2cbf;
+    --purple-light:#c77dff;
+    --pink:#ff70a6;
+    --pink-light:#ffafd0;
+    --gold:#f4c95d;
+    --gold-light:#ffe8a3;
+
+    --background:#fcf8ff;
+    --background-soft:#f4eaff;
+
+    --card:#ffffff;
+    --text:#24152d;
+    --text-soft:#6c5875;
+
+    --border:rgba(123,44,191,.15);
+
+    --shadow:0 20px 55px rgba(76,27,104,.13);
+
+    --radius:24px;
+    --radius-big:34px;
+}
+
+
+/* =========================================================
+   DARK MODE
+========================================================= */
+
+body.dark{
+    --background:#110817;
+    --background-soft:#21102d;
+    --card:#281634;
+
+    --text:#fff4ff;
+    --text-soft:#ddcbe3;
+
+    --border:rgba(255,255,255,.14);
+
+    --shadow:0 20px 60px rgba(0,0,0,.4);
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:"DM Sans",sans-serif;
+
+    background:
+        radial-gradient(
+            circle at 10% 10%,
+            rgba(199,125,255,.15),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 90% 20%,
+            rgba(255,112,166,.12),
+            transparent 25%
+        ),
+        var(--background);
+
+    color:var(--text);
+
+    min-height:100vh;
+
+    overflow-x:hidden;
+
+    transition:
+        background .4s ease,
+        color .4s ease;
+}
+
+body::before{
+    content:"";
+
+    position:fixed;
+    inset:0;
+
+    pointer-events:none;
+
+    background-image:
+        radial-gradient(
+            circle,
+            rgba(123,44,191,.08) 1px,
+            transparent 1px
+        );
+
+    background-size:35px 35px;
+
+    z-index:-1;
+}
+
+button,
+input,
+textarea{
+    font:inherit;
+}
+
+button{
+    border:0;
+    cursor:pointer;
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+#intro{
+    position:fixed;
+    inset:0;
+
+    z-index:9999;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    overflow:hidden;
+
+    background:
+        radial-gradient(
+            circle at 50% 30%,
+            rgba(199,125,255,.3),
+            transparent 35%
+        ),
+        linear-gradient(
+            145deg,
+            #12071a,
+            #35104e 55%,
+            #160820
+        );
+
+    color:white;
+
+    transition:
+        opacity 1s ease,
+        visibility 1s ease;
+}
+
+.intro-stars{
+    position:absolute;
+    inset:0;
+
+    background-image:
+        radial-gradient(
+            circle,
+            rgba(255,255,255,.9) 1px,
+            transparent 1.5px
+        );
+
+    background-size:90px 90px;
+
+    animation:starsMove 25s linear infinite;
+
+    opacity:.7;
+}
+
+@keyframes starsMove{
+
+    from{
+        transform:translateY(0);
+    }
+
+    to{
+        transform:translateY(90px);
+    }
+
+}
+
+.intro-moon{
+    position:absolute;
+
+    top:9%;
+    right:12%;
+
+    width:95px;
+    height:95px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            white,
+            #ffe8a3 65%,
+            #f4c95d
+        );
+
+    box-shadow:
+        0 0 40px rgba(255,232,163,.35);
+}
+
+.shooting-star{
+    position:absolute;
+
+    top:18%;
+    left:-180px;
+
+    width:150px;
+    height:2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            white,
+            transparent
+        );
+
+    transform:rotate(-28deg);
+
+    animation:
+        shooting 7s ease-in-out infinite;
+}
+
+@keyframes shooting{
+
+    0%,55%{
+        left:-180px;
+        opacity:0;
+    }
+
+    65%{
+        opacity:1;
+    }
+
+    80%,100%{
+        left:110%;
+        opacity:0;
+    }
+
+}
+
+.intro-content{
+    position:relative;
+    z-index:5;
+
+    width:min(900px,94%);
+
+    text-align:center;
+
+    padding-top:25px;
+}
+
+.intro-crown{
+    font-size:3rem;
+
+    margin-bottom:4px;
+
+    animation:
+        crownFloat 3s ease-in-out infinite;
+}
+
+@keyframes crownFloat{
+
+    50%{
+        transform:
+            translateY(-8px)
+            rotate(2deg);
+    }
+
+}
+
+.intro-content h1{
+    font-family:"Playfair Display",serif;
+
+    font-size:
+        clamp(
+            2.7rem,
+            7vw,
+            5rem
+        );
+
+    line-height:1;
+
+    margin-bottom:10px;
+
+    background:
+        linear-gradient(
+            120deg,
+            #fff,
+            #ffd5e8,
+            #f4c95d
+        );
+
+    -webkit-background-clip:text;
+
+    color:transparent;
+}
+
+.intro-content p{
+    max-width:600px;
+
+    margin:
+        0 auto 18px;
+
+    color:
+        rgba(255,255,255,.82);
+}
+
+
+/* =========================================================
+   CASTILLO
+========================================================= */
+
+.castle-scene{
+    position:relative;
+
+    width:min(700px,95vw);
+
+    height:340px;
+
+    margin:
+        0 auto 0;
+
+    perspective:1000px;
+}
+
+.castle-ground{
+    position:absolute;
+
+    bottom:15px;
+    left:5%;
+
+    width:90%;
+    height:45px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            ellipse,
+            rgba(199,125,255,.35),
+            transparent 70%
+        );
+
+    filter:blur(4px);
+}
+
+.castle-main{
+    position:absolute;
+
+    bottom:45px;
+    left:19%;
+
+    width:62%;
+    height:145px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #4c176c,
+            #7b2cbf,
+            #4c176c
+        );
+
+    border-radius:
+        7px 7px 0 0;
+
+    box-shadow:
+        0 20px 35px rgba(0,0,0,.3);
+}
+
+.castle-tower{
+    position:absolute;
+
+    bottom:45px;
+
+    width:115px;
+    height:205px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #43145e,
+            #7b2cbf
+        );
+
+    box-shadow:
+        0 20px 35px rgba(0,0,0,.28);
+}
+
+.castle-tower.left{
+    left:7%;
+}
+
+.castle-tower.right{
+    right:7%;
+}
+
+.castle-roof{
+    position:absolute;
+
+    top:-70px;
+    left:-14px;
+
+    width:143px;
+    height:75px;
+
+    background:#4b176d;
+
+    clip-path:
+        polygon(
+            50% 0,
+            100% 100%,
+            0 100%
+        );
+}
+
+.castle-window{
+    position:absolute;
+
+    left:50%;
+    top:60px;
+
+    transform:
+        translateX(-50%);
+
+    width:25px;
+    height:38px;
+
+    border-radius:
+        15px 15px 6px 6px;
+
+    background:
+        linear-gradient(
+            #fff2ae,
+            #f4c95d
+        );
+
+    box-shadow:
+        0 0 25px
+        rgba(244,201,93,.8);
+}
+
+.castle-main-window{
+    position:absolute;
+
+    top:25px;
+
+    width:27px;
+    height:35px;
+
+    border-radius:
+        15px 15px 6px 6px;
+
+    background:#ffeaa7;
+
+    box-shadow:
+        0 0 22px
+        rgba(244,201,93,.6);
+}
+
+.castle-main-window.one{
+    left:22%;
+}
+
+.castle-main-window.two{
+    right:22%;
+}
+
+.castle-door-frame{
+    position:absolute;
+
+    bottom:0;
+    left:50%;
+
+    transform:
+        translateX(-50%);
+
+    width:116px;
+    height:118px;
+
+    border-radius:
+        60px 60px 0 0;
+
+    background:#f4c95d;
+
+    padding:7px;
+
+    z-index:10;
+}
+
+.castle-door{
+    position:relative;
+
+    width:100%;
+    height:100%;
+
+    overflow:hidden;
+
+    border-radius:
+        53px 53px 0 0;
+
+    background:#24102e;
+
+    display:flex;
+
+    transform-style:preserve-3d;
+}
+
+.door{
+    position:absolute;
+
+    top:0;
+
+    width:50%;
+    height:100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            #4b176d,
+            #7b2cbf
+        );
+
+    border:
+        2px solid
+        rgba(244,201,93,.5);
+
+    z-index:5;
+
+    transition:
+        transform 1.7s
+        cubic-bezier(.77,0,.18,1);
+}
+
+.door.left{
+    left:0;
+
+    transform-origin:
+        left center;
+}
+
+.door.right{
+    right:0;
+
+    transform-origin:
+        right center;
+}
+
+#intro.opening
+.door.left{
+    transform:
+        perspective(400px)
+        rotateY(-105deg);
+}
+
+#intro.opening
+.door.right{
+    transform:
+        perspective(400px)
+        rotateY(105deg);
+}
+
+.door::before{
+    content:"";
+
+    position:absolute;
+    inset:12px;
+
+    border:
+        1px solid
+        rgba(244,201,93,.35);
+
+    border-radius:
+        40px 40px 0 0;
+}
+
+.door-handle{
+    position:absolute;
+
+    top:52%;
+
+    width:12px;
+    height:12px;
+
+    border-radius:50%;
+
+    background:#f4c95d;
+
+    box-shadow:
+        0 0 8px
+        rgba(244,201,93,.8);
+}
+
+.door.left
+.door-handle{
+    right:8px;
+}
+
+.door.right
+.door-handle{
+    left:8px;
+}
+
+.flag-pole{
+    position:absolute;
+
+    z-index:3;
+
+    top:-73px;
+    left:50%;
+
+    width:4px;
+    height:75px;
+
+    background:#f4c95d;
+}
+
+.flag{
+    position:absolute;
+
+    z-index:3;
+
+    top:-70px;
+    left:
+        calc(50% + 4px);
+
+    width:65px;
+    height:38px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff70a6,
+            #c77dff
+        );
+
+    clip-path:
+        polygon(
+            0 0,
+            100% 15%,
+            0 45%
+        );
+}
+
+.enter-button{
+    position:relative;
+
+    z-index:20;
+
+    display:inline-flex;
+
+    align-items:center;
+    justify-content:center;
+
+    gap:9px;
+
+    padding:
+        15px 27px;
+
+    border-radius:999px;
+
+    color:white;
+
+    font-weight:700;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff70a6,
+            #7b2cbf
+        );
+
+    box-shadow:
+        0 15px 40px
+        rgba(199,125,255,.35);
+
+    transition:
+        transform .25s,
+        box-shadow .25s;
+}
+
+.enter-button:hover{
+    transform:
+        translateY(-3px)
+        scale(1.02);
+}
+
+#intro.opening
+.enter-button{
+    opacity:0;
+
+    transform:
+        translateY(20px);
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+header{
+    position:sticky;
+
+    top:0;
+
+    z-index:1000;
+
+    height:72px;
+
+    background:
+        rgba(255,255,255,.88);
+
+    backdrop-filter:
+        blur(18px);
+
+    border-bottom:
+        1px solid var(--border);
+}
+
+body.dark header{
+    background:
+        rgba(40,22,52,.9);
+}
+
+.nav{
+    max-width:1200px;
+
+    height:100%;
+
+    margin:auto;
+
+    padding:
+        0 20px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:
+        space-between;
+}
+
+.brand{
+    display:flex;
+
+    align-items:center;
+
+    gap:9px;
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-weight:700;
+
+    font-size:1.25rem;
+
+    color:var(--text);
+}
+
+.brand span{
+    font-size:1.4rem;
+}
+
+.nav-links{
+    display:flex;
+
+    align-items:center;
+
+    gap:5px;
+}
+
+.nav-links a,
+.theme-toggle{
+    padding:
+        9px 11px;
+
+    border-radius:12px;
+
+    color:var(--text-soft);
+
+    background:transparent;
+
+    font-weight:600;
+
+    font-size:.88rem;
+}
+
+.nav-links a:hover,
+.theme-toggle:hover{
+    background:
+        var(--background-soft);
+
+    color:
+        var(--purple);
+}
+
+
+/* =========================================================
+   GENERAL
+========================================================= */
+
+section{
+    width:
+        min(
+            1120px,
+            calc(100% - 32px)
+        );
+
+    margin:auto;
+
+    padding:85px 0;
+}
+
+.section-heading{
+    text-align:center;
+
+    margin-bottom:40px;
+}
+
+.eyebrow{
+    color:
+        var(--purple);
+
+    font-size:.78rem;
+
+    font-weight:800;
+
+    letter-spacing:.18em;
+
+    text-transform:uppercase;
+
+    margin-bottom:8px;
+}
+
+.section-heading h2{
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size:
+        clamp(
+            2rem,
+            5vw,
+            3.2rem
+        );
+
+    line-height:1.05;
+
+    margin-bottom:12px;
+
+    color:
+        var(--text);
+}
+
+.section-heading p{
+    max-width:650px;
+
+    margin:auto;
+
+    color:
+        var(--text-soft);
+}
+
+.glass{
+    background:
+        rgba(255,255,255,.9);
+
+    border:
+        1px solid var(--border);
+
+    box-shadow:
+        var(--shadow);
+
+    backdrop-filter:
+        blur(15px);
+}
+
+body.dark .glass{
+    background:
+        rgba(40,22,52,.92);
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+    min-height:
+        calc(100vh - 72px);
+
+    display:grid;
+
+    place-items:center;
+
+    text-align:center;
+}
+
+.hero-inner{
+    max-width:800px;
+
+    margin:auto;
+}
+
+.hero-crown{
+    font-size:3.2rem;
+
+    margin-bottom:10px;
+}
+
+.hero h1{
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size:
+        clamp(
+            3rem,
+            8vw,
+            6rem
+        );
+
+    line-height:.95;
+
+    margin-bottom:20px;
+
+    color:
+        var(--text);
+}
+
+.hero h1 span{
+    display:block;
+
+    background:
+        linear-gradient(
+            120deg,
+            var(--purple),
+            var(--pink),
+            var(--gold)
+        );
+
+    -webkit-background-clip:text;
+
+    color:transparent;
+}
+
+.hero p{
+    max-width:650px;
+
+    margin:
+        auto auto 28px;
+
+    color:
+        var(--text-soft);
+
+    font-size:1.1rem;
+}
+
+.hero-actions{
+    display:flex;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:10px;
+}
+
+.primary-btn,
+.secondary-btn{
+    display:inline-flex;
+
+    align-items:center;
+    justify-content:center;
+
+    gap:8px;
+
+    min-height:48px;
+
+    padding:
+        12px 20px;
+
+    border-radius:999px;
+
+    font-weight:700;
+
+    transition:
+        transform .2s,
+        box-shadow .2s;
+}
+
+.primary-btn{
+    color:white;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--purple),
+            var(--pink)
+        );
+
+    box-shadow:
+        0 12px 28px
+        rgba(123,44,191,.25);
+}
+
+.secondary-btn{
+    color:
+        var(--purple);
+
+    background:
+        var(--card);
+
+    border:
+        1px solid var(--border);
+}
+
+.primary-btn:hover,
+.secondary-btn:hover{
+    transform:
+        translateY(-2px);
+}
+
+
+/* =========================================================
+   PERFIL
+========================================================= */
+
+.profile-grid{
+    display:grid;
+
+    grid-template-columns:
+        .8fr 1.2fr;
+
+    gap:24px;
+}
+
+.profile-card,
+.letter-card{
+    padding:32px;
+
+    border-radius:
+        var(--radius-big);
+}
+
+.profile-card{
+    text-align:center;
+}
+
+.avatar{
+    width:130px;
+    height:130px;
+
+    margin:
+        0 auto 18px;
+
+    display:grid;
+
+    place-items:center;
+
+    border-radius:50%;
+
+    font-size:4rem;
+
+    background:
+        linear-gradient(
+            145deg,
+            #efd4ff,
+            #ffd4e5
+        );
+
+    box-shadow:
+        0 15px 35px
+        rgba(123,44,191,.15);
+}
+
+.profile-card h3{
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size:2rem;
+
+    color:
+        var(--text);
+
+    margin-bottom:3px;
+}
+
+.role{
+    color:
+        var(--purple);
+
+    font-weight:700;
+
+    margin-bottom:18px;
+}
+
+.profile-card p,
+.letter-card p{
+    color:
+        var(--text-soft);
+}
+
+.letter-card{
+    position:relative;
+}
+
+.letter-card h3{
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size:2rem;
+
+    color:
+        var(--text);
+
+    margin-bottom:18px;
+}
+
+.letter-card p{
+    margin-bottom:13px;
+}
+
+
+/* =========================================================
+   DEDICATORIA KEVIN
+========================================================= */
+
+.kevin-dedication{
+    margin-top:30px;
+
+    padding:35px;
+
+    border-radius:30px;
+
+    text-align:center;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(123,44,191,.1),
+            rgba(255,112,166,.1)
+        ),
+        var(--card);
+
+    border:
+        1px solid var(--border);
+
+    box-shadow:
+        var(--shadow);
+}
+
+.kevin-dedication .heart{
+    font-size:2.8rem;
+
+    margin-bottom:10px;
+
+    animation:
+        heartbeat 1.7s ease-in-out infinite;
+}
+
+@keyframes heartbeat{
+
+    50%{
+        transform:scale(1.15);
+    }
+
+}
+
+.kevin-dedication h3{
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size:2rem;
+
+    color:
+        var(--text);
+
+    margin-bottom:12px;
+}
+
+.kevin-dedication p{
+    max-width:760px;
+
+    margin:auto;
+
+    color:
+        var(--text-soft);
+
+    line-height:1.8;
+}
+
+.kevin-signature{
+    margin-top:17px;
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size:1.25rem;
+
+    color:
+        var(--purple);
+}
+
+
+/* =========================================================
+   STATS
+========================================================= */
+
+.stats{
+    width:
+        min(
+            900px,
+            calc(100% - 32px)
+        );
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:14px;
+}
+
+.stat{
+    padding:
+        25px 12px;
+
+    text-align:center;
+
+    border-radius:22px;
+}
+
+.stat-number{
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size:2.5rem;
+
+    color:
+        var(--purple);
+
+    font-weight:700;
+}
+
+.stat-label{
+    color:
+        var(--text-soft);
+
+    font-size:.85rem;
+
+    font-weight:600;
+}
+
+
+/* =========================================================
+   CARTAS
+========================================================= */
+
+.letters-intro{
+    text-align:center;
+
+    max-width:720px;
+
+    margin:
+        0 auto 30px;
+
+    color:
+        var(--text-soft);
+}
+
+.letters-grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:16px;
+}
+
+.letter-option{
+    position:relative;
+
+    min-height:225px;
+
+    padding:
+        25px 20px;
+
+    border-radius:28px;
+
+    text-align:center;
+
+    overflow:hidden;
+
+    color:white;
+
+    background:
+        linear-gradient(
+            145deg,
+            #6b218f,
+            #b74b91
+        );
+
+    box-shadow:
+        0 18px 40px
+        rgba(90,30,110,.18);
+
+    transition:
+        transform .3s,
+        box-shadow .3s;
+}
+
+.letter-option:nth-child(2n){
+    background:
+        linear-gradient(
+            145deg,
+            #7b2cbf,
+            #e16ba4
+        );
+}
+
+.letter-option:nth-child(3n){
+    background:
+        linear-gradient(
+            145deg,
+            #54206e,
+            #9c6ade
+        );
+}
+
+.letter-option:hover{
+    transform:
+        translateY(-7px)
+        rotate(-1deg);
+
+    box-shadow:
+        0 25px 50px
+        rgba(90,30,110,.28);
+}
+
+.letter-option::before{
+    content:"";
+
+    position:absolute;
+
+    width:130px;
+    height:130px;
+
+    right:-45px;
+    top:-55px;
+
+    border-radius:50%;
+
+    background:
+        rgba(255,255,255,.12);
+}
+
+.envelope{
+    width:95px;
+    height:70px;
+
+    margin:
+        0 auto 15px;
+
+    position:relative;
+
+    background:#fff0f7;
+
+    border-radius:8px;
+
+    box-shadow:
+        0 8px 20px
+        rgba(0,0,0,.16);
+}
+
+.envelope::before{
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    top:0;
+
+    width:0;
+    height:0;
+
+    border-left:
+        47px solid transparent;
+
+    border-right:
+        47px solid transparent;
+
+    border-top:
+        38px solid #ffc1db;
+
+    transform-origin:top;
+
+    transition:
+        transform .45s;
+}
+
+.letter-option:hover
+.envelope::before{
+    transform:
+        rotateX(180deg);
+}
+
+.letter-option h3{
+    position:relative;
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size:1.4rem;
+
+    margin-bottom:7px;
+}
+
+.letter-option p{
+    position:relative;
+
+    color:
+        rgba(255,255,255,.85);
+
+    font-size:.86rem;
+}
+
+.open-letter{
+    position:relative;
+
+    margin-top:15px;
+
+    padding:
+        9px 15px;
+
+    border-radius:999px;
+
+    color:#5b176f;
+
+    background:#fff;
+
+    font-weight:800;
+}
+
+
+/* =========================================================
+   MODAL CARTA
+========================================================= */
+
+.letter-modal-card{
+    width:
+        min(
+            650px,
+            100%
+        );
+
+    padding:0;
+
+    overflow:hidden;
+}
+
+.letter-modal-top{
+    padding:
+        35px 30px 25px;
+
+    text-align:center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #7b2cbf,
+            #e86fa7
+        );
+
+    color:white;
+}
+
+.letter-modal-envelope{
+    font-size:4rem;
+
+    margin-bottom:8px;
+
+    animation:
+        envelopeOpen .7s ease both;
+}
+
+@keyframes envelopeOpen{
+
+    from{
+        opacity:0;
+
+        transform:
+            translateY(20px)
+            scale(.7)
+            rotate(-5deg);
+    }
+
+    to{
+        opacity:1;
+
+        transform:none;
+    }
+
+}
+
+.letter-modal-top h2{
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size:2rem;
+}
+
+.letter-paper{
+    padding:35px;
+
+    background:
+        var(--card);
+}
+
+.letter-paper p{
+    color:
+        var(--text-soft);
+
+    line-height:1.9;
+
+    margin-bottom:15px;
+}
+
+.letter-message{
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size:1.25rem;
+
+    color:
+        var(--text) !important;
+}
+
+.signature{
+    text-align:right;
+
+    color:
+        var(--purple) !important;
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size:1.15rem;
+}
+
+
+/* =========================================================
+   DIARIO
+========================================================= */
+
+.diary-panel{
+    padding:28px;
+
+    border-radius:
+        var(--radius-big);
+}
+
+.diary-toolbar{
+    display:grid;
+
+    grid-template-columns:
+        1fr auto auto;
+
+    gap:10px;
+
+    margin-bottom:15px;
+}
+
+.search-box input,
+.form-input,
+.form-textarea,
+.dream-input{
+    width:100%;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:15px;
+
+    padding:
+        13px 15px;
+
+    outline:none;
+
+    color:
+        var(--text);
+
+    background:
+        var(--background);
+}
+
+.search-box input::placeholder,
+.form-input::placeholder,
+.form-textarea::placeholder,
+.dream-input::placeholder{
+    color:
+        var(--text-soft);
+
+    opacity:.8;
+}
+
+.search-box input:focus,
+.form-input:focus,
+.form-textarea:focus,
+.dream-input:focus{
+    border-color:
+        var(--purple-light);
+
+    box-shadow:
+        0 0 0 4px
+        rgba(199,125,255,.12);
+}
+
+.filter-btn{
+    padding:
+        0 16px;
+
+    border-radius:15px;
+
+    color:
+        var(--text-soft);
+
+    background:
+        var(--background);
+
+    border:
+        1px solid var(--border);
+
+    font-weight:700;
+}
+
+.filter-btn.active{
+    color:white;
+
+    background:
+        var(--purple);
+}
+
+.diary-actions{
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:8px;
+
+    margin-bottom:22px;
+}
+
+.small-btn{
+    padding:
+        9px 13px;
+
+    border-radius:12px;
+
+    background:
+        var(--background-soft);
+
+    color:
+        var(--purple);
+
+    font-weight:700;
+
+    font-size:.85rem;
+}
+
+.small-btn.danger{
+    color:#d04472;
+}
+
+.entries{
+    display:grid;
+
+    gap:13px;
+}
+
+.empty-state{
+    text-align:center;
+
+    padding:
+        55px 20px;
+
+    color:
+        var(--text-soft);
+}
+
+.empty-state .emoji{
+    font-size:3rem;
+
+    margin-bottom:10px;
+}
+
+.empty-state h3{
+    color:
+        var(--text);
+}
+
+.entry{
+    padding:20px;
+
+    border-radius:20px;
+
+    background:
+        var(--background);
+
+    border:
+        1px solid var(--border);
+}
+
+.entry-top{
+    display:flex;
+
+    justify-content:
+        space-between;
+
+    align-items:flex-start;
+
+    gap:15px;
+}
+
+.entry h3{
+    font-family:
+        "Playfair Display",
+        serif;
+
+    color:
+        var(--text);
+
+    font-size:1.35rem;
+}
+
+.entry-date{
+    color:
+        var(--text-soft);
+
+    font-size:.77rem;
+}
+
+.entry-content{
+    margin:
+        13px 0;
+
+    color:
+        var(--text-soft);
+
+    white-space:pre-wrap;
+
+    word-break:break-word;
+}
+
+.entry-buttons{
+    display:flex;
+
+    gap:7px;
+}
+
+.icon-btn{
+    min-width:38px;
+
+    height:36px;
+
+    padding:
+        0 9px;
+
+    border-radius:11px;
+
+    background:
+        var(--card);
+
+    border:
+        1px solid var(--border);
+
+    color:
+        var(--text-soft);
+}
+
+.icon-btn.favorite{
+    color:#e85d91;
+}
+
+.diary-form{
+    margin-top:24px;
+
+    padding-top:24px;
+
+    border-top:
+        1px solid var(--border);
+}
+
+.form-grid{
+    display:grid;
+
+    gap:12px;
+}
+
+.form-textarea{
+    min-height:150px;
+
+    resize:vertical;
+}
+
+.form-footer{
+    display:flex;
+
+    align-items:flex-end;
+
+    justify-content:
+        space-between;
+
+    gap:15px;
+
+    margin-top:12px;
+}
+
+.mood-picker{
+    display:flex;
+
+    gap:6px;
+
+    flex-wrap:wrap;
+}
+
+.mood{
+    width:40px;
+    height:40px;
+
+    border-radius:12px;
+
+    background:
+        var(--background-soft);
+}
+
+.mood.selected{
+    outline:
+        2px solid
+        var(--purple);
+
+    transform:
+        translateY(-2px);
+}
+
+
+/* =========================================================
+   ESTRELLA MÁGICA
+========================================================= */
+
+.star-dream-box{
+    position:relative;
+
+    overflow:hidden;
+
+    padding:
+        45px 30px;
+
+    border-radius:34px;
+
+    text-align:center;
+
+    background:
+        radial-gradient(
+            circle at 50% 20%,
+            rgba(199,125,255,.18),
+            transparent 35%
+        ),
+        linear-gradient(
+            145deg,
+            #160b24,
+            #301044
+        );
+
+    box-shadow:
+        0 25px 70px
+        rgba(35,10,55,.25);
+
+    color:white;
+}
+
+.star-dream-box::before,
+.star-dream-box::after{
+    content:"";
+
+    position:absolute;
+
+    width:5px;
+    height:5px;
+
+    border-radius:50%;
+
+    background:white;
+
+    box-shadow:
+        80px 20px white,
+        170px 70px #ffe8a3,
+        -100px 90px #c77dff,
+        260px 20px white,
+        -240px 30px white,
+        350px 110px #ffafd0,
+        -330px 120px #ffe8a3;
+
+    opacity:.7;
+}
+
+.star-dream-box::before{
+    top:20px;
+    left:15%;
+}
+
+.star-dream-box::after{
+    bottom:30px;
+    right:15%;
+}
+
+.magic-star{
+    position:relative;
+
+    z-index:2;
+
+    display:inline-block;
+
+    font-size:5rem;
+
+    filter:
+        drop-shadow(
+            0 0 20px
+            rgba(255,232,163,.9)
+        );
+
+    animation:
+        starPulse 2.2s
+        ease-in-out infinite;
+}
+
+@keyframes starPulse{
+
+    50%{
+        transform:
+            scale(1.15)
+            rotate(7deg);
+    }
+
+}
+
+.star-dream-box h3{
+    position:relative;
+
+    z-index:2;
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size:2.3rem;
+
+    margin-bottom:10px;
+}
+
+.star-dream-box > p{
+    position:relative;
+
+    z-index:2;
+
+    max-width:650px;
+
+    margin:
+        0 auto 25px;
+
+    color:
+        rgba(255,255,255,.8);
+}
+
+.dream-form{
+    position:relative;
+
+    z-index:2;
+
+    max-width:650px;
+
+    margin:auto;
+
+    display:flex;
+
+    gap:9px;
+}
+
+.dream-input{
+    color:
+        var(--text);
+}
+
+.dreams-count{
+    position:relative;
+
+    z-index:2;
+
+    margin-top:18px;
+
+    color:
+        rgba(255,255,255,.7);
+
+    font-size:.9rem;
+}
+
+.dream-list{
+    position:relative;
+
+    z-index:2;
+
+    max-width:700px;
+
+    margin:
+        25px auto 0;
+
+    display:grid;
+
+    gap:9px;
+}
+
+.dream-item{
+    display:flex;
+
+    align-items:center;
+
+    justify-content:
+        space-between;
+
+    gap:12px;
+
+    padding:
+        12px 15px;
+
+    border-radius:15px;
+
+    background:
+        rgba(255,255,255,.09);
+
+    border:
+        1px solid
+        rgba(255,255,255,.1);
+
+    text-align:left;
+}
+
+.dream-item span{
+    color:
+        rgba(255,255,255,.9);
+}
+
+.dream-delete{
+    flex:none;
+
+    width:30px;
+    height:30px;
+
+    border-radius:50%;
+
+    background:
+        rgba(255,255,255,.12);
+
+    color:white;
+}
+
+
+/* =========================================================
+   GALERÍA
+========================================================= */
+
+.gallery-tools{
+    display:flex;
+
+    justify-content:center;
+
+    margin-bottom:28px;
+}
+
+.upload-label{
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    padding:
+        13px 20px;
+
+    border-radius:999px;
+
+    color:white;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--purple),
+            var(--pink)
+        );
+
+    font-weight:700;
+
+    cursor:pointer;
+}
+
+#photoInput{
+    display:none;
+}
+
+.gallery{
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:14px;
+}
+
+.photo{
+    position:relative;
+
+    aspect-ratio:1;
+
+    overflow:hidden;
+
+    border-radius:20px;
+
+    background:
+        var(--background-soft);
+
+    border:
+        1px solid var(--border);
+}
+
+.photo img{
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    transition:
+        transform .4s;
+}
+
+.photo:hover img{
+    transform:
+        scale(1.06);
+}
+
+.photo-delete{
+    position:absolute;
+
+    top:9px;
+    right:9px;
+
+    width:34px;
+    height:34px;
+
+    border-radius:50%;
+
+    color:white;
+
+    background:
+        rgba(20,10,25,.65);
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+    padding:
+        50px 20px;
+
+    text-align:center;
+
+    color:
+        var(--text-soft);
+
+    border-top:
+        1px solid var(--border);
+}
+
+footer strong{
+    color:
+        var(--text);
+}
+
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+.modal{
+    position:fixed;
+
+    inset:0;
+
+    z-index:5000;
+
+    display:none;
+
+    place-items:center;
+
+    padding:20px;
+
+    background:
+        rgba(20,7,28,.65);
+
+    backdrop-filter:
+        blur(8px);
+}
+
+.modal.open{
+    display:grid;
+}
+
+.modal-card{
+    position:relative;
+
+    width:
+        min(
+            620px,
+            100%
+        );
+
+    border-radius:28px;
+
+    background:
+        var(--card);
+
+    box-shadow:
+        0 30px 80px
+        rgba(0,0,0,.35);
+
+    animation:
+        modalUp .3s ease both;
+}
+
+@keyframes modalUp{
+
+    from{
+        opacity:0;
+
+        transform:
+            translateY(20px)
+            scale(.97);
+    }
+
+    to{
+        opacity:1;
+
+        transform:none;
+    }
+
+}
+
+.close-modal{
+    position:absolute;
+
+    top:14px;
+    right:14px;
+
+    width:38px;
+    height:38px;
+
+    border-radius:50%;
+
+    background:
+        var(--background-soft);
+
+    color:
+        var(--text);
+
+    font-size:1.2rem;
+
+    z-index:10;
+}
+
+
+/* =========================================================
+   TOAST
+========================================================= */
+
+#toast{
+    position:fixed;
+
+    left:50%;
+    bottom:25px;
+
+    z-index:10000;
+
+    max-width:
+        calc(100% - 32px);
+
+    padding:
+        13px 18px;
+
+    border-radius:999px;
+
+    color:white;
+
+    background:#291332;
+
+    box-shadow:
+        0 15px 35px
+        rgba(0,0,0,.25);
+
+    transform:
+        translate(-50%,100px);
+
+    opacity:0;
+
+    pointer-events:none;
+
+    transition:
+        transform .3s,
+        opacity .3s;
+
+    text-align:center;
+
+    font-size:.9rem;
+}
+
+#toast.show{
+    transform:
+        translate(-50%,0);
+
+    opacity:1;
+}
+
+
+/* =========================================================
+   PARTICLES
+========================================================= */
+
+.particle{
+    position:fixed;
+
+    z-index:9000;
+
+    pointer-events:none;
+
+    font-size:18px;
+
+    animation:
+        particleFly 1.8s
+        ease-out forwards;
+}
+
+@keyframes particleFly{
+
+    from{
+        opacity:1;
+
+        transform:
+            translate(0,0)
+            scale(1)
+            rotate(0);
+    }
+
+    to{
+        opacity:0;
+
+        transform:
+            translate(
+                var(--x),
+                var(--y)
+            )
+            scale(.3)
+            rotate(180deg);
+    }
+
+}
+
+
+/* =========================================================
+   REVEAL
+========================================================= */
+
+.reveal{
+    opacity:0;
+
+    transform:
+        translateY(25px);
+
+    transition:
+        opacity .7s ease,
+        transform .7s ease;
+}
+
+.reveal.visible{
+    opacity:1;
+
+    transform:none;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:900px){
+
+    .profile-grid{
+        grid-template-columns:1fr;
+    }
+
+    .letters-grid{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .gallery{
+        grid-template-columns:
+            repeat(3,1fr);
+    }
+
+    .stats{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+}
+
+
+@media(max-width:700px){
+
+    section{
+        padding:65px 0;
+    }
+
+    .nav-links a{
+        display:none;
+    }
+
+    .hero{
+        min-height:auto;
+
+        padding:
+            75px 0 55px;
+    }
+
+    .diary-toolbar{
+        grid-template-columns:1fr;
+    }
+
+    .filter-btn{
+        min-height:45px;
+    }
+
+    .form-footer{
+        flex-direction:column;
+
+        align-items:stretch;
+    }
+
+    .castle-scene{
+        transform:
+            scale(.68);
+
+        margin-top:-10px;
+
+        margin-bottom:-35px;
+    }
+
+    .letters-grid{
+        grid-template-columns:1fr;
+    }
+
+    .dream-form{
+        flex-direction:column;
+    }
+
+}
+
+
+@media(max-width:480px){
+
+    .brand{
+        font-size:1rem;
+    }
+
+    .hero-actions{
+        flex-direction:column;
+    }
+
+    .hero-actions a{
+        width:100%;
+    }
+
+    .gallery{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .entry-top{
+        flex-direction:column;
+    }
+
+    .intro-moon{
+        width:65px;
+        height:65px;
+
+        right:8%;
+    }
+
+    .castle-scene{
+        transform:
+            scale(.56);
+
+        margin-top:-35px;
+
+        margin-bottom:-75px;
+    }
+
+    .intro-content h1{
+        font-size:2.5rem;
+    }
+
+    .kevin-dedication{
+        padding:
+            28px 20px;
+    }
+
+    .letter-paper{
+        padding:
+            25px 20px;
+    }
+
+}
+
+
+@media(prefers-reduced-motion:reduce){
+
+    *,
+    *::before,
+    *::after{
+        animation-duration:.001ms !important;
+
+        animation-iteration-count:1 !important;
+
+        transition-duration:.001ms !important;
+
+        scroll-behavior:auto !important;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     INTRO DEL REINO
+========================================================= -->
+
+<div id="intro">
+
+    <div class="intro-stars"></div>
+
+    <div class="intro-moon"></div>
+
+    <div class="shooting-star"></div>
+
+
+    <div class="intro-content">
+
+        <div class="intro-crown">
+            👑
+        </div>
+
+
+        <h1>
+            Reino de<br>
+            Princesa Lore
+        </h1>
+
+
+        <p>
+            Un pequeño reino creado con amor,
+            donde cada recuerdo, sueño y sentimiento
+            tiene un lugar especial.
+        </p>
+
+
+        <div class="castle-scene">
+
+            <div class="castle-ground"></div>
+
+
+            <div class="castle-tower left">
+
+                <div class="castle-roof"></div>
+
+                <div class="castle-window"></div>
+
+            </div>
+
+
+            <div class="castle-tower right">
+
+                <div class="castle-roof"></div>
+
+                <div class="castle-window"></div>
+
+            </div>
+
+
+            <div class="castle-main">
+
+                <div class="flag-pole"></div>
+
+                <div class="flag"></div>
+
+                <div class="castle-main-window one"></div>
+
+                <div class="castle-main-window two"></div>
+
+            </div>
+
+
+            <div class="castle-door-frame">
+
+                <div class="castle-door">
+
+                    <div class="door left">
+
+                        <div class="door-handle"></div>
+
+                    </div>
+
+
+                    <div class="door right">
+
+                        <div class="door-handle"></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <button
+            class="enter-button"
+            id="enterButton">
+
+            🚪✨ Abrir las puertas
+
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     APLICACIÓN
+========================================================= -->
+
+<div
+    id="app"
+    style="visibility:hidden;">
+
+<header>
+
+<nav class="nav">
+
+
+<a
+    href="#inicio"
+    class="brand">
+
+    <span>👑</span>
+
+    Princesa Lore
+
+</a>
+
+
+<div class="nav-links">
+
+    <a href="#perfil">
+        Perfil
+    </a>
+
+    <a href="#cartas">
+        Cartas
+    </a>
+
+    <a href="#diario">
+        Diario
+    </a>
+
+    <a href="#suenos">
+        Sueños
+    </a>
+
+    <a href="#galeria">
+        Galería
+    </a>
+
+
+    <button
+        class="theme-toggle"
+        id="themeToggle"
+        title="Cambiar tema">
+
+        🌙
+
+    </button>
+
+</div>
+
+</nav>
+
+</header>
+
+
+
+<main>
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section
+    class="hero"
+    id="inicio">
+
+<div class="hero-inner reveal">
+
+    <div class="hero-crown">
+        👑
+    </div>
+
+    <div class="eyebrow">
+        Bienvenida a tu reino
+    </div>
+
+    <h1>
+        El Reino de
+        <span>
+            Princesa Lore
+        </span>
+    </h1>
+
+    <p>
+        Un lugar creado especialmente para ti,
+        donde tus recuerdos, tus emociones,
+        tus sueños y todas esas pequeñas cosas
+        que hacen especial tu vida pueden quedarse
+        guardadas para siempre.
+    </p>
+
+
+    <div class="hero-actions">
+
+        <a
+            href="#diario"
+            class="primary-btn">
+
+            📖 Abrir mi diario
+
+        </a>
+
+
+        <a
+            href="#cartas"
+            class="secondary-btn">
+
+            💌 Abrir una carta
+
+        </a>
+
+    </div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================================================
+     PERFIL
+========================================================= -->
+
+<section id="perfil">
+
+
+<div class="section-heading reveal">
+
+    <div class="eyebrow">
+        El corazón del reino
+    </div>
+
+    <h2>
+        Conoce a la princesa 👑
+    </h2>
+
+    <p>
+        Porque detrás de cada reino existe una historia.
+    </p>
+
+</div>
+
+
+<div class="profile-grid">
+
+
+<article
+    class="profile-card glass reveal">
+
+    <div class="avatar">
+        👸🏻
+    </div>
+
+    <h3>
+        Princesa Lore
+    </h3>
+
+    <div class="role">
+        ✨ Princesa &amp; Enfermera ✨
+    </div>
+
+    <p>
+        Soñadora, sensible, fuerte y llena
+        de sueños. Este espacio guarda
+        pequeños pedacitos de su mundo.
+    </p>
+
+</article>
+
+
+<article
+    class="letter-card glass reveal">
+
+    <h3>
+        Una pequeña carta 💌
+    </h3>
+
+    <p>
+        Querida Lore:
+    </p>
+
+    <p>
+        Nunca olvides que incluso los días
+        difíciles forman parte de una historia hermosa.
+    </p>
+
+    <p>
+        Sigue soñando, sigue creciendo y sigue
+        creyendo en esa versión de ti que todavía
+        está por descubrir todo lo maravilloso
+        que puede conseguir.
+    </p>
+
+    <p>
+        Tu reino no necesita ser perfecto.
+        Solo necesita ser tuyo. 💜
+    </p>
+
+    <p>
+        Con cariño,<br>
+        <strong>
+            Tu yo del futuro ✨
+        </strong>
+    </p>
+
+</article>
+
+</div>
+
+
+
+<!-- =========================================================
+     DEDICATORIA KEVIN
+========================================================= -->
+
+<div class="kevin-dedication reveal">
+
+    <div class="heart">
+        ❤️
+    </div>
+
+    <h3>
+        Un regalo del Príncipe Kevin
+    </h3>
+
+    <p>
+        Este diario fue creado especialmente para ti
+        por el <strong>Príncipe Kevin</strong>, para que
+        tengas un pequeño lugar donde guardar tus
+        pensamientos, tus recuerdos, tus emociones,
+        tus sueños y todas esas cosas que hacen que
+        tu corazón sea tan especial.
+    </p>
+
+    <p style="margin-top:12px;">
+        Cuando estés feliz, aquí habrá un lugar para
+        celebrarlo. Cuando estés triste, habrá una carta
+        esperándote. Y cuando tengas un sueño, siempre
+        habrá una estrella donde puedas guardarlo. ⭐
+    </p>
+
+    <div class="kevin-signature">
+        Con amor, tu Príncipe Kevin 👑❤️
+    </div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================================================
+     ESTADÍSTICAS
+========================================================= -->
+
+<div class="stats">
+
+
+<div class="stat glass reveal">
+
+    <div
+        class="stat-number"
+        id="memoryCount">
+
+        0
+
+    </div>
+
+    <div class="stat-label">
+        Recuerdos
+    </div>
+
+</div>
+
+
+<div class="stat glass reveal">
+
+    <div
+        class="stat-number"
+        id="favoriteCount">
+
+        0
+
+    </div>
+
+    <div class="stat-label">
+        Favoritos
+    </div>
+
+</div>
+
+
+<div class="stat glass reveal">
+
+    <div
+        class="stat-number"
+        id="photoCount">
+
+        0
+
+    </div>
+
+    <div class="stat-label">
+        Fotografías
+    </div>
+
+</div>
+
+
+<div class="stat glass reveal">
+
+    <div
+        class="stat-number"
+        id="dreamCount">
+
+        0
+
+    </div>
+
+    <div class="stat-label">
+        Sueños guardados
+    </div>
+
+</div>
+
+
+</div>
+
+
+
+<!-- =========================================================
+     CARTAS MÁGICAS
+========================================================= -->
+
+<section id="cartas">
+
+
+<div class="section-heading reveal">
+
+    <div class="eyebrow">
+        Siempre habrá una para ti
+    </div>
+
+    <h2>
+        Cartas del Príncipe 💌
+    </h2>
+
+    <p>
+        Elige cómo te sientes y abre la carta
+        que Kevin dejó preparada para ese momento.
+    </p>
+
+</div>
+
+
+<div class="letters-grid">
+
+
+<!-- TRISTE -->
+
+<article class="letter-option reveal">
+
+    <div class="envelope"></div>
+
+    <h3>
+        Ábreme si estás triste
+    </h3>
+
+    <p>
+        Para esos momentos en los que necesitas
+        un poquito de cariño.
+    </p>
+
+    <button
+        class="open-letter"
+        data-letter="sad">
+
+        💌 Abrirme
+
+    </button>
+
+</article>
+
+
+<!-- FELIZ -->
+
+<article class="letter-option reveal">
+
+    <div class="envelope"></div>
+
+    <h3>
+        Ábreme si estás feliz
+    </h3>
+
+    <p>
+        Porque tus momentos felices también merecen
+        ser celebrados.
+    </p>
+
+    <button
+        class="open-letter"
+        data-letter="happy">
+
+        💌 Abrirme
+
+    </button>
+
+</article>
+
+
+<!-- EXTRAÑA -->
+
+<article class="letter-option reveal">
+
+    <div class="envelope"></div>
+
+    <h3>
+        Ábreme si me extrañas
+    </h3>
+
+    <p>
+        Para cuando quieras sentir un poquito más
+        cerca al Príncipe Kevin.
+    </p>
+
+    <button
+        class="open-letter"
+        data-letter="miss">
+
+        💌 Abrirme
+
+    </button>
+
+</article>
+
+
+<!-- DÍA DIFÍCIL -->
+
+<article class="letter-option reveal">
+
+    <div class="envelope"></div>
+
+    <h3>
+        Ábreme si tuviste un día difícil
+    </h3>
+
+    <p>
+        Para recordarte que un mal día no significa
+        una mala vida.
+    </p>
+
+    <button
+        class="open-letter"
+        data-letter="hard">
+
+        💌 Abrirme
+
+    </button>
+
+</article>
+
+
+<!-- AMOR -->
+
+<article class="letter-option reveal">
+
+    <div class="envelope"></div>
+
+    <h3>
+        Ábreme si necesitas amor
+    </h3>
+
+    <p>
+        Cuando solo quieras sentirte querida.
+    </p>
+
+    <button
+        class="open-letter"
+        data-letter="love">
+
+        💌 Abrirme
+
+    </button>
+
+</article>
+
+
+<!-- DORMIR -->
+
+<article class="letter-option reveal">
+
+    <div class="envelope"></div>
+
+    <h3>
+        Ábreme antes de dormir
+    </h3>
+
+    <p>
+        Una pequeña caricia en forma de palabras
+        para cerrar el día.
+    </p>
+
+    <button
+        class="open-letter"
+        data-letter="night">
+
+        💌 Abrirme
+
+    </button>
+
+</article>
+
+
+<!-- DUDAS -->
+
+<article class="letter-option reveal">
+
+    <div class="envelope"></div>
+
+    <h3>
+        Ábreme si dudas de ti
+    </h3>
+
+    <p>
+        Para recordarte todo lo que vales.
+    </p>
+
+    <button
+        class="open-letter"
+        data-letter="doubt">
+
+        💌 Abrirme
+
+    </button>
+
+</article>
+
+
+<!-- SONRISA -->
+
+<article class="letter-option reveal">
+
+    <div class="envelope"></div>
+
+    <h3>
+        Ábreme cuando sonrías
+    </h3>
+
+    <p>
+        Porque esa sonrisa merece una carta.
+    </p>
+
+    <button
+        class="open-letter"
+        data-letter="smile">
+
+        💌 Abrirme
+
+    </button>
+
+</article>
+
+
+<!-- RECORDAR -->
+
+<article class="letter-option reveal">
+
+    <div class="envelope"></div>
+
+    <h3>
+        Ábreme cuando necesites recordar
+    </h3>
+
+    <p>
+        Para que nunca olvides lo especial que eres.
+    </p>
+
+    <button
+        class="open-letter"
+        data-letter="remember">
+
+        💌 Abrirme
+
+    </button>
+
+</article>
+
+
+</div>
+
+</section>
+
+
+
+<!-- =========================================================
+     DIARIO
+========================================================= -->
+
+<section id="diario">
+
+
+<div class="section-heading reveal">
+
+    <div class="eyebrow">
+        Mis pensamientos
+    </div>
+
+    <h2>
+        Diario de la princesa 📖
+    </h2>
+
+    <p>
+        Un lugar privado para escribir todo aquello
+        que quieras guardar.
+    </p>
+
+</div>
+
+
+<div class="diary-panel glass reveal">
+
+
+<div class="diary-toolbar">
+
+
+    <div class="search-box">
+
+        <input
+            type="search"
+            id="diarySearch"
+            placeholder="🔎 Buscar en mi diario..."
+            autocomplete="off">
+
+    </div>
+
+
+    <button
+        class="filter-btn"
+        id="favoriteFilter">
+
+        💗 Favoritos
+
+    </button>
+
+
+    <button
+        class="filter-btn active"
+        id="allFilter">
+
+        📖 Todos
+
+    </button>
+
+
+</div>
+
+
+
+<div class="diary-actions">
+
+
+    <button
+        class="small-btn"
+        id="exportDiary">
+
+        📤 Exportar diario
+
+    </button>
+
+
+    <button
+        class="small-btn"
+        id="importDiaryButton">
+
+        📥 Importar diario
+
+    </button>
+
+
+    <button
+        class="small-btn danger"
+        id="clearDiary">
+
+        🗑️ Borrar diario
+
+    </button>
+
+
+    <input
+        type="file"
+        id="importDiaryInput"
+        accept=".json,application/json"
+        hidden>
+
+
+</div>
+
+
+
+<div
+    class="entries"
+    id="entries">
+</div>
+
+
+
+<div class="diary-form">
+
+
+<div class="form-grid">
+
+
+    <input
+        class="form-input"
+        id="entryTitle"
+        maxlength="100"
+        placeholder="Título de mi recuerdo...">
+
+
+    <textarea
+        class="form-textarea"
+        id="entryContent"
+        maxlength="5000"
+        placeholder="Escribe aquí lo que quieras guardar..."></textarea>
+
+
+</div>
+
+
+
+<div class="form-footer">
+
+
+<div>
+
+    <small
+        style="
+        display:block;
+        color:var(--text-soft);
+        margin-bottom:7px;
+        ">
+
+        ¿Cómo me siento?
+
+    </small>
+
+
+    <div class="mood-picker">
+
+        <button
+            class="mood"
+            data-mood="🥰">
+            🥰
+        </button>
+
+        <button
+            class="mood"
+            data-mood="😊">
+            😊
+        </button>
+
+        <button
+            class="mood"
+            data-mood="😍">
+            😍
+        </button>
+
+        <button
+            class="mood"
+            data-mood="🥹">
+            🥹
+        </button>
+
+        <button
+            class="mood"
+            data-mood="😴">
+            😴
+        </button>
+
+        <button
+            class="mood"
+            data-mood="😔">
+            😔
+        </button>
+
+        <button
+            class="mood"
+            data-mood="✨">
+            ✨
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<div
+    style="
+    display:flex;
+    gap:8px;
+    ">
+
+
+    <button
+        class="secondary-btn"
+        id="cancelEdit"
+        style="display:none;">
+
+        Cancelar
+
+    </button>
+
+
+    <button
+        class="primary-btn"
+        id="saveEntry">
+
+        💜 Guardar recuerdo
+
+    </button>
+
+
+</div>
+
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================================================
+     ESTRELLA MÁGICA
+========================================================= -->
+
+<section id="suenos">
+
+
+<div class="section-heading reveal">
+
+    <div class="eyebrow">
+        Aquí viven tus sueños
+    </div>
+
+    <h2>
+        La Estrella Mágica ⭐
+    </h2>
+
+    <p>
+        Guarda aquí los sueños que algún día
+        quieras ver cumplidos.
+    </p>
+
+</div>
+
+
+
+<div class="star-dream-box reveal">
+
+
+    <div class="magic-star">
+        ⭐
+    </div>
+
+
+    <h3>
+        Pide un deseo
+    </h3>
+
+
+    <p>
+        Cierra los ojos por un momento,
+        piensa en algo que deseas de corazón
+        y escríbelo aquí. La estrella lo guardará
+        para ti.
+    </p>
+
+
+
+    <div class="dream-form">
+
+
+        <input
+            class="dream-input"
+            id="dreamInput"
+            maxlength="180"
+            placeholder="Mi sueño es...">
+
+
+        <button
+            class="primary-btn"
+            id="saveDream">
+
+            ⭐ Guardar sueño
+
+        </button>
+
+
+    </div>
+
+
+
+    <div
+        class="dreams-count"
+        id="dreamsCountText">
+
+        0 sueños guardados en tu cielo ✨
+
+    </div>
+
+
+
+    <div
+        class="dream-list"
+        id="dreamList">
+    </div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- =========================================================
+     GALERÍA
+========================================================= -->
+
+<section id="galeria">
+
+
+<div class="section-heading reveal">
+
+    <div class="eyebrow">
+        Mis momentos
+    </div>
+
+    <h2>
+        Galería del reino 📸
+    </h2>
+
+    <p>
+        Guarda tus fotografías favoritas
+        directamente en este navegador.
+    </p>
+
+</div>
+
+
+
+<div class="gallery-tools reveal">
+
+
+    <label
+        class="upload-label"
+        for="photoInput">
+
+        📸 Añadir fotografías
+
+    </label>
+
+
+    <input
+        id="photoInput"
+        type="file"
+        accept="image/*"
+        multiple>
+
+
+</div>
+
+
+
+<div
+    class="gallery"
+    id="gallery">
+</div>
+
+
+</section>
+
+
+
+<!-- =========================================================
+     MENSAJE FINAL
+========================================================= -->
+
+<section>
+
+
+<div class="kevin-dedication reveal">
+
+
+    <div class="heart">
+        💜
+    </div>
+
+
+    <h3>
+        Y si algún día olvidas cuánto te quiero...
+    </h3>
+
+
+    <p>
+
+        vuelve a este reino.
+
+        Abre una carta.
+
+        Mira tus sueños.
+
+        Lee tus recuerdos.
+
+        Y recuerda que este pequeño mundo
+        fue creado para regalarte un lugar
+        donde siempre puedas sentirte especial.
+
+    </p>
+
+
+    <div class="kevin-signature">
+        Siempre tuyo, Príncipe Kevin 👑❤️
+    </div>
+
+
+</div>
+
+</section>
+
+
+</main>
+
+
+
+<footer>
+
+    <div
+        style="
+        font-size:2rem;
+        margin-bottom:8px;
+        ">
+        👑
+    </div>
+
+
+    <strong>
+        Reino de la Princesa Lore
+    </strong>
+
+
+    <p style="margin-top:7px;">
+        Un reino creado con amor por el Príncipe Kevin. 💜
+    </p>
+
+
+    <p
+        style="
+        font-size:.8rem;
+        margin-top:15px;
+        ">
+
+        Tus recuerdos, sueños y fotografías
+        se guardan localmente en este navegador.
+
+    </p>
+
+</footer>
+
+</div>
+
+
+
+<!-- =========================================================
+     MODAL DE CARTAS
+========================================================= -->
+
+<div
+    class="modal"
+    id="letterModal">
+
+
+<div
+    class="modal-card letter-modal-card">
+
+
+    <button
+        class="close-modal"
+        data-close="letterModal">
+
+        ×
+
+    </button>
+
+
+
+    <div class="letter-modal-top">
+
+
+        <div
+            class="letter-modal-envelope"
+            id="letterModalIcon">
+
+            💌
+
+        </div>
+
+
+        <h2 id="letterModalTitle">
+            Una carta para ti
+        </h2>
+
+
+    </div>
+
+
+
+    <div class="letter-paper">
+
+
+        <p>
+            Mi Princesa Lore:
+        </p>
+
+
+        <p
+            class="letter-message"
+            id="letterModalMessage">
+        </p>
+
+
+        <p>
+            Respira, sonríe un poquito y recuerda
+            que no tienes que afrontar cada día sola.
+        </p>
+
+
+        <p class="signature">
+
+            Con todo mi amor,<br>
+
+            Tu Príncipe Kevin 👑❤️
+
+        </p>
+
+
+    </div>
+
+
+</div>
+
+</div>
+
+
+
+<!-- =========================================================
+     TOAST
+========================================================= -->
+
+<div id="toast"></div>
+
+
+
+<script>
+
+/* =========================================================
+   CONFIGURACIÓN
+========================================================= */
+
+const STORAGE = {
+
+    diary:
+        "lorePrincessDiary",
+
+    theme:
+        "diaryTheme",
+
+    mood:
+        "loreMood",
+
+    dreams:
+        "loreMagicDreams"
+
+};
+
+
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
+let diaryEntries = [];
+
+let editingId = null;
+
+let selectedMood = "";
+
+let showFavoritesOnly = false;
+
+let toastTimer = null;
+
+let db = null;
+
+let galleryPhotosCount = 0;
+
+let galleryObjectUrls = [];
+
+
+
+/* =========================================================
+   HELPERS
+========================================================= */
+
+const $ =
+    selector =>
+        document.querySelector(
+            selector
+        );
+
+
+const $$ =
+    selector =>
+        Array.from(
+            document.querySelectorAll(
+                selector
+            )
+        );
+
+
+function escapeHTML(value){
+
+    return String(
+        value ?? ""
+    )
+    .replace(
+        /&/g,
+        "&amp;"
+    )
+    .replace(
+        /</g,
+        "&lt;"
+    )
+    .replace(
+        />/g,
+        "&gt;"
+    )
+    .replace(
+        /"/g,
+        "&quot;"
+    )
+    .replace(
+        /'/g,
+        "&#039;"
+    );
+
+}
+
+
+function formatDate(timestamp){
+
+    try{
+
+        return new Intl.DateTimeFormat(
+            "es-ES",
+            {
+                dateStyle:"medium",
+                timeStyle:"short"
+            }
+        )
+        .format(
+            new Date(timestamp)
+        );
+
+    }catch{
+
+        return "";
+
+    }
+
+}
+
+
+function showToast(message){
+
+    const toast =
+        $("#toast");
+
+    toast.textContent =
+        message;
+
+    toast.classList.add(
+        "show"
+    );
+
+    clearTimeout(
+        toastTimer
+    );
+
+    toastTimer =
+        setTimeout(
+            () =>
+                toast.classList.remove(
+                    "show"
+                ),
+            2800
+        );
+
+}
+
+
+
+/* =========================================================
+   ENTRAR AL REINO
+========================================================= */
+
+$("#enterButton")
+.addEventListener(
+    "click",
+    () => {
+
+        const intro =
+            $("#intro");
+
+        const app =
+            $("#app");
+
+
+        intro.classList.add(
+            "opening"
+        );
+
+
+        createParticles(
+            "✨",
+            35
+        );
+
+
+        setTimeout(
+            () => {
+
+                app.style.visibility =
+                    "visible";
+
+            },
+            500
+        );
+
+
+        setTimeout(
+            () => {
+
+                intro.style.opacity =
+                    "0";
+
+            },
+            1600
+        );
+
+
+        setTimeout(
+            () => {
+
+                intro.style.visibility =
+                    "hidden";
+
+                intro.remove();
+
+                startFloatingMagic();
+
+            },
+            2350
+        );
+
+    }
+);
+
+
+
+/* =========================================================
+   TEMA
+========================================================= */
+
+function applyTheme(theme){
+
+    const dark =
+        theme === "dark";
+
+
+    document.body.classList.toggle(
+        "dark",
+        dark
+    );
+
+
+    $("#themeToggle")
+        .textContent =
+        dark
+            ? "☀️"
+            : "🌙";
+
+
+    document
+        .querySelector(
+            'meta[name="theme-color"]'
+        )
+        .setAttribute(
+            "content",
+            dark
+                ? "#281634"
+                : "#7b2cbf"
+        );
+
+
+    localStorage.setItem(
+        STORAGE.theme,
+        dark
+            ? "dark"
+            : "light"
+    );
+
+}
+
+
+applyTheme(
+    localStorage.getItem(
+        STORAGE.theme
+    ) === "dark"
+        ? "dark"
+        : "light"
+);
+
+
+$("#themeToggle")
+.addEventListener(
+    "click",
+    () => {
+
+        const next =
+            document.body.classList.contains(
+                "dark"
+            )
+                ? "light"
+                : "dark";
+
+
+        applyTheme(next);
+
+
+        createParticles(
+            next === "dark"
+                ? "🌙"
+                : "☀️",
+            12
+        );
+
+    }
+);
+
+
+
+/* =========================================================
+   CARTAS MÁGICAS
+========================================================= */
+
+const LETTERS = {
+
+
+    sad:{
+        title:
+            "Ábreme si estás triste 💜",
+
+        icon:
+            "💌",
+
+        message:
+            "Mi amor, si hoy estás triste, quiero que recuerdes algo: no tienes que esconder lo que sientes. Puedes llorar, puedes descansar y puedes tomarte tu tiempo. Solo no olvides que incluso cuando tú no puedas ver tu propia luz, para mí sigues siendo una de las estrellas más bonitas de mi cielo. Ojalá pudiera abrazarte ahora mismo y decirte bajito: todo va a estar bien, mi Princesa. ❤️"
+    },
+
+
+    happy:{
+        title:
+            "Ábreme si estás feliz 🌸",
+
+        icon:
+            "🌷",
+
+        message:
+            "Si estás feliz, quiero que sonrías todavía más. Me encanta imaginarte disfrutando de esos pequeños momentos que hacen bonito el día. Guarda esta alegría en tu corazón, tómale una fotografía con tu memoria y nunca tengas miedo de disfrutarla. Tu felicidad también es una de las cosas que más quiero cuidar."
+    },
+
+
+    miss:{
+        title:
+            "Ábreme si me extrañas ❤️",
+
+        icon:
+            "❤️",
+
+        message:
+            "Si me extrañas, cierra los ojos un momento e imagina que estoy frente a ti. Imagina que te miro, sonrío y te digo que también te extraño. La distancia puede hacer que dos personas estén lejos, pero no puede borrar lo que guardamos en el corazón. Siempre habrá un pedacito de mí acompañándote."
+    },
+
+
+    hard:{
+        title:
+            "Ábreme si hoy fue difícil 🌙",
+
+        icon:
+            "🌙",
+
+        message:
+            "Mi Princesa, un día difícil no significa que hayas fracasado. A veces simplemente hiciste lo mejor que pudiste con las fuerzas que tenías. Y eso también es valentía. Descansa. Mañana será otra oportunidad. Hoy solo quiero que seas amable contigo misma."
+    },
+
+
+    love:{
+        title:
+            "Ábreme si necesitas amor 💗",
+
+        icon:
+            "💗",
+
+        message:
+            "Entonces aquí tienes un poquito: eres importante, eres especial y mereces sentirte querida. No tienes que hacer nada extraordinario para merecer cariño. Solo por ser tú ya tienes un lugar especial en mi corazón. Si pudiera, ahora mismo te daría un abrazo largo y no te soltaría hasta verte sonreír."
+    },
+
+
+    night:{
+        title:
+            "Ábreme antes de dormir 🌙",
+
+        icon:
+            "🌙",
+
+        message:
+            "Buenas noches, mi Princesa. Deja por hoy las preocupaciones fuera de tu habitación. Mañana podrás ocuparte de ellas. Ahora descansa. Que tus sueños sean tranquilos, bonitos y llenos de estrellas. Y si alguna noche miras al cielo, recuerda que hay una estrella que guarda un deseo para ti."
+    },
+
+
+    doubt:{
+        title:
+            "Ábreme si dudas de ti ✨",
+
+        icon:
+            "✨",
+
+        message:
+            "No permitas que un momento de inseguridad te haga olvidar todo lo que has superado. Has llegado hasta aquí por una razón. Eres mucho más fuerte de lo que a veces crees y mucho más valiosa de lo que algunas dudas quieren hacerte pensar. Confía un poquito más en la mujer que estás construyendo."
+    },
+
+
+    smile:{
+        title:
+            "Ábreme cuando sonrías 😊",
+
+        icon:
+            "😊",
+
+        message:
+            "Si estás sonriendo mientras lees esto, entonces mi misión ya está cumplida. Quiero que conserves esa sonrisa todo lo que puedas. Porque hay algo precioso en verte feliz. Nunca dejes que nadie te convenza de apagar esa luz que llevas dentro."
+    },
+
+
+    remember:{
+        title:
+            "Ábreme cuando necesites recordar ⭐",
+
+        icon:
+            "⭐",
+
+        message:
+            "Recuerda que eres única. Recuerda tus sueños. Recuerda todo lo que has conseguido. Recuerda que no tienes que compararte con nadie. Y sobre todo recuerda esto: este reino existe porque alguien quiso crear un lugar donde pudieras volver cuando necesitaras sentirte especial."
+    }
+
+};
+
+
+
+$$(".open-letter")
+.forEach(
+    button => {
+
+        button.addEventListener(
+            "click",
+            () => {
+
+                const letter =
+                    LETTERS[
+                        button.dataset.letter
+                    ];
+
+
+                if(!letter)
+                    return;
+
+
+                $("#letterModalTitle")
+                    .textContent =
+                    letter.title;
+
+
+                $("#letterModalIcon")
+                    .textContent =
+                    letter.icon;
+
+
+                $("#letterModalMessage")
+                    .textContent =
+                    letter.message;
+
+
+                $("#letterModal")
+                    .classList.add(
+                        "open"
+                    );
+
+
+                createParticles(
+                    letter.icon,
+                    18
+                );
+
+            }
+        );
+
+    }
+);
+
+
+
+/* =========================================================
+   CERRAR MODAL
+========================================================= */
+
+$$("[data-close]")
+.forEach(
+    button => {
+
+        button.addEventListener(
+            "click",
+            () => {
+
+                const modal =
+                    document.getElementById(
+                        button.dataset.close
+                    );
+
+
+                if(modal){
+
+                    modal.classList.remove(
+                        "open"
+                    );
+
+                }
+
+            }
+        );
+
+    }
+);
+
+
+$("#letterModal")
+.addEventListener(
+    "click",
+    event => {
+
+        if(
+            event.target ===
+            $("#letterModal")
+        ){
+
+            $("#letterModal")
+                .classList.remove(
+                    "open"
+                );
+
+        }
+
+    }
+);
+
+
+document.addEventListener(
+    "keydown",
+    event => {
+
+        if(
+            event.key === "Escape"
+        ){
+
+            $$(".modal.open")
+            .forEach(
+                modal =>
+                    modal.classList.remove(
+                        "open"
+                    )
+            );
+
+        }
+
+    }
+);
+
+
+
+/* =========================================================
+   DIARIO
+========================================================= */
+
+function normalizeEntry(entry){
+
+    if(
+        !entry ||
+        typeof entry !== "object"
+    ){
+
+        return null;
+
+    }
+
+
+    return {
+
+        id:
+            String(
+                entry.id ??
+                `${Date.now()}-${Math.random()}`
+            ),
+
+        title:
+            String(
+                entry.title ??
+                "Sin título"
+            ),
+
+        content:
+            String(
+                entry.content ??
+                ""
+            ),
+
+        favorite:
+            Boolean(
+                entry.favorite
+            ),
+
+        mood:
+            String(
+                entry.mood ??
+                ""
+            ),
+
+        createdAt:
+            Number(
+                entry.createdAt
+            ) ||
+            Date.now(),
+
+        updatedAt:
+            Number(
+                entry.updatedAt
+            ) ||
+            null
+
+    };
+
+}
+
+
+
+function loadDiary(){
+
+    try{
+
+        const raw =
+            localStorage.getItem(
+                STORAGE.diary
+            );
+
+
+        if(!raw){
+
+            diaryEntries = [];
+
+            return;
+
+        }
+
+
+        const parsed =
+            JSON.parse(raw);
+
+
+        diaryEntries =
+            Array.isArray(parsed)
+
+                ? parsed
+                    .map(
+                        normalizeEntry
+                    )
+                    .filter(Boolean)
+
+                : [];
+
+    }catch{
+
+        diaryEntries = [];
+
+    }
+
+}
+
+
+
+function saveDiary(){
+
+    try{
+
+        localStorage.setItem(
+            STORAGE.diary,
+            JSON.stringify(
+                diaryEntries
+            )
+        );
+
+    }catch{
+
+        showToast(
+            "No se pudo guardar el diario."
+        );
+
+    }
+
+}
+
+
+
+function renderEntries(){
+
+    const container =
+        $("#entries");
+
+
+    const query =
+        $("#diarySearch")
+            .value
+            .trim()
+            .toLowerCase();
+
+
+    let entries =
+        [...diaryEntries];
+
+
+    if(showFavoritesOnly){
+
+        entries =
+            entries.filter(
+                entry =>
+                    entry.favorite
+            );
+
+    }
+
+
+    if(query){
+
+        entries =
+            entries.filter(
+                entry => {
+
+                    const text =
+                        [
+                            entry.title,
+                            entry.content,
+                            entry.mood
+                        ]
+                        .join(" ")
+                        .toLowerCase();
+
+
+                    return text.includes(
+                        query
+                    );
+
+                }
+            );
+
+    }
+
+
+    entries.sort(
+        (a,b) =>
+            (
+                b.updatedAt ||
+                b.createdAt
+            )
+            -
+            (
+                a.updatedAt ||
+                a.createdAt
+            )
+    );
+
+
+    if(!entries.length){
+
+        container.innerHTML = `
+
+        <div class="empty-state">
+
+            <div class="emoji">
+                ${
+                    showFavoritesOnly
+                        ? "💗"
+                        : "📖"
+                }
+            </div>
+
+            <h3>
+
+                ${
+                    showFavoritesOnly
+                        ? "Todavía no tienes favoritos"
+                        : query
+                            ? "No encontré recuerdos"
+                            : "Tu diario está esperando su primera historia"
+                }
+
+            </h3>
+
+            <p style="margin-top:8px;">
+
+                ${
+                    query
+                        ? "Prueba con otra palabra."
+                        : "Escribe algo bonito para comenzar."
+                }
+
+            </p>
+
+        </div>
+
+        `;
+
+
+        updateStats();
+
+        return;
+
+    }
+
+
+    container.innerHTML =
+        entries
+        .map(
+            entry => {
+
+                const date =
+                    entry.updatedAt
+
+                        ? `Editado ${formatDate(
+                            entry.updatedAt
+                        )}`
+
+                        : formatDate(
+                            entry.createdAt
+                        );
+
+
+                return `
+
+                <article class="entry">
+
+                    <div class="entry-top">
+
+                        <div>
+
+                            <h3>
+
+                                ${escapeHTML(
+                                    entry.title
+                                )}
+
+                                ${
+                                    entry.mood
+                                        ? " " +
+                                          escapeHTML(
+                                              entry.mood
+                                          )
+                                        : ""
+                                }
+
+                            </h3>
+
+                            <div class="entry-date">
+
+                                ${escapeHTML(
+                                    date
+                                )}
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="entry-buttons">
+
+
+                            <button
+                                class="icon-btn ${
+                                    entry.favorite
+                                        ? "favorite"
+                                        : ""
+                                }"
+                                data-action="favorite"
+                                data-id="${escapeHTML(
+                                    entry.id
+                                )}">
+
+                                ${
+                                    entry.favorite
+                                        ? "💗"
+                                        : "♡"
+                                }
+
+                            </button>
+
+
+                            <button
+                                class="icon-btn"
+                                data-action="edit"
+                                data-id="${escapeHTML(
+                                    entry.id
+                                )}">
+
+                                ✏️
+
+                            </button>
+
+
+                            <button
+                                class="icon-btn"
+                                data-action="delete"
+                                data-id="${escapeHTML(
+                                    entry.id
+                                )}">
+
+                                🗑️
+
+                            </button>
+
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="entry-content">
+
+                        ${escapeHTML(
+                            entry.content
+                        )}
+
+                    </div>
+
+                </article>
+
+                `;
+
+            }
+        )
+        .join("");
+
+
+    updateStats();
+
+}
+
+
+
+$("#saveEntry")
+.addEventListener(
+    "click",
+    saveEntry
+);
+
+
+$("#entryContent")
+.addEventListener(
+    "keydown",
+    event => {
+
+        if(
+            (event.ctrlKey ||
+             event.metaKey) &&
+            event.key === "Enter"
+        ){
+
+            saveEntry();
+
+        }
+
+    }
+);
+
+
+
+function saveEntry(){
+
+    const title =
+        $("#entryTitle")
+            .value
+            .trim();
+
+
+    const content =
+        $("#entryContent")
+            .value
+            .trim();
+
+
+    if(!title){
+
+        showToast(
+            "Escribe un título para tu recuerdo. 💜"
+        );
+
+        $("#entryTitle").focus();
+
+        return;
+
+    }
+
+
+    if(!content){
+
+        showToast(
+            "Escribe algo antes de guardar. ✨"
+        );
+
+        $("#entryContent").focus();
+
+        return;
+
+    }
+
+
+    if(editingId){
+
+        const entry =
+            diaryEntries.find(
+                item =>
+                    item.id ===
+                    editingId
+            );
+
+
+        if(entry){
+
+            entry.title =
+                title;
+
+            entry.content =
+                content;
+
+            entry.mood =
+                selectedMood;
+
+            entry.updatedAt =
+                Date.now();
+
+        }
+
+
+        showToast(
+            "Recuerdo actualizado. 💜"
+        );
+
+    }else{
+
+        diaryEntries.unshift({
+
+            id:
+                typeof crypto !== "undefined" &&
+                crypto.randomUUID
+
+                    ? crypto.randomUUID()
+
+                    : `${Date.now()}-${Math.random()}`,
+
+            title,
+
+            content,
+
+            favorite:false,
+
+            mood:selectedMood,
+
+            createdAt:
+                Date.now(),
+
+            updatedAt:null
+
+        });
+
+
+        showToast(
+            "Recuerdo guardado. ✨"
+        );
+
+    }
+
+
+    saveDiary();
+
+    resetForm();
+
+    renderEntries();
+
+    createParticles(
+        "💜",
+        15
+    );
+
+}
+
+
+
+$("#entries")
+.addEventListener(
+    "click",
+    event => {
+
+        const button =
+            event.target.closest(
+                "[data-action]"
+            );
+
+
+        if(!button)
+            return;
+
+
+        const action =
+            button.dataset.action;
+
+
+        const id =
+            button.dataset.id;
+
+
+
+        if(
+            action ===
+            "favorite"
+        ){
+
+            const entry =
+                diaryEntries.find(
+                    item =>
+                        item.id === id
+                );
+
+
+            if(!entry)
+                return;
+
+
+            entry.favorite =
+                !entry.favorite;
+
+
+            saveDiary();
+
+            renderEntries();
+
+
+            showToast(
+                entry.favorite
+                    ? "Añadido a favoritos. 💗"
+                    : "Quitado de favoritos."
+            );
+
+        }
+
+
+
+        if(
+            action ===
+            "edit"
+        ){
+
+            const entry =
+                diaryEntries.find(
+                    item =>
+                        item.id === id
+                );
+
+
+            if(!entry)
+                return;
+
+
+            editingId =
+                id;
+
+
+            $("#entryTitle")
+                .value =
+                entry.title;
+
+
+            $("#entryContent")
+                .value =
+                entry.content;
+
+
+            selectedMood =
+                entry.mood || "";
+
+
+            $$(".mood")
+                .forEach(
+                    mood =>
+                        mood.classList.toggle(
+                            "selected",
+                            mood.dataset.mood ===
+                                selectedMood
+                        )
+                );
+
+
+            $("#saveEntry")
+                .textContent =
+                "💾 Guardar cambios";
+
+
+            $("#cancelEdit")
+                .style.display =
+                "inline-flex";
+
+
+            $("#diario")
+                .scrollIntoView({
+                    behavior:"smooth"
+                });
+
+
+            $("#entryTitle")
+                .focus();
+
+        }
+
+
+
+        if(
+            action ===
+            "delete"
+        ){
+
+            const entry =
+                diaryEntries.find(
+                    item =>
+                        item.id === id
+                );
+
+
+            if(!entry)
+                return;
+
+
+            if(
+                !confirm(
+                    `¿Eliminar el recuerdo "${entry.title}"?`
+                )
+            ){
+
+                return;
+
+            }
+
+
+            diaryEntries =
+                diaryEntries.filter(
+                    item =>
+                        item.id !== id
+                );
+
+
+            saveDiary();
+
+            renderEntries();
+
+
+            showToast(
+                "Recuerdo eliminado."
+            );
+
+        }
+
+    }
+);
+
+
+
+function resetForm(){
+
+    editingId = null;
+
+    selectedMood = "";
+
+    $("#entryTitle").value = "";
+
+    $("#entryContent").value = "";
+
+
+    $("#saveEntry")
+        .textContent =
+        "💜 Guardar recuerdo";
+
+
+    $("#cancelEdit")
+        .style.display =
+        "none";
+
+
+    $$(".mood")
+        .forEach(
+            mood =>
+                mood.classList.remove(
+                    "selected"
+                )
+        );
+
+}
+
+
+
+$("#cancelEdit")
+.addEventListener(
+    "click",
+    resetForm
+);
+
+
+
+$$(".mood")
+.forEach(
+    button => {
+
+        button.addEventListener(
+            "click",
+            () => {
+
+                selectedMood =
+                    button.dataset.mood ===
+                    selectedMood
+
+                        ? ""
+
+                        : button.dataset.mood;
+
+
+                $$(".mood")
+                    .forEach(
+                        item =>
+                            item.classList.toggle(
+                                "selected",
+                                item.dataset.mood ===
+                                    selectedMood
+                            )
+                    );
+
+
+                localStorage.setItem(
+                    STORAGE.mood,
+                    selectedMood
+                );
+
+            }
+        );
+
+    }
+);
+
+
+
+$("#diarySearch")
+.addEventListener(
+    "input",
+    renderEntries
+);
+
+
+
+$("#favoriteFilter")
+.addEventListener(
+    "click",
+    () => {
+
+        showFavoritesOnly =
+            true;
+
+
+        $("#favoriteFilter")
+            .classList.add(
+                "active"
+            );
+
+
+        $("#allFilter")
+            .classList.remove(
+                "active"
+            );
+
+
+        renderEntries();
+
+    }
+);
+
+
+
+$("#allFilter")
+.addEventListener(
+    "click",
+    () => {
+
+        showFavoritesOnly =
+            false;
+
+
+        $("#allFilter")
+            .classList.add(
+                "active"
+            );
+
+
+        $("#favoriteFilter")
+            .classList.remove(
+                "active"
+            );
+
+
+        renderEntries();
+
+    }
+);
+
+
+
+/* =========================================================
+   EXPORTAR DIARIO
+========================================================= */
+
+$("#exportDiary")
+.addEventListener(
+    "click",
+    () => {
+
+        if(
+            !diaryEntries.length
+        ){
+
+            showToast(
+                "No hay recuerdos para exportar."
+            );
+
+            return;
+
+        }
+
+
+        const data = {
+
+            app:
+                "Reino de la Princesa Lore",
+
+            createdBy:
+                "Príncipe Kevin",
+
+            version:3,
+
+            exportedAt:
+                new Date()
+                    .toISOString(),
+
+            entries:
+                diaryEntries
+
+        };
+
+
+        const blob =
+            new Blob(
+                [
+                    JSON.stringify(
+                        data,
+                        null,
+                        2
+                    )
+                ],
+                {
+                    type:
+                        "application/json"
+                }
+            );
+
+
+        const url =
+            URL.createObjectURL(
+                blob
+            );
+
+
+        const link =
+            document.createElement(
+                "a"
+            );
+
+
+        link.href =
+            url;
+
+
+        link.download =
+            `diario-princesa-lore-${new Date()
+                .toISOString()
+                .slice(0,10)}.json`;
+
+
+        document.body.appendChild(
+            link
+        );
+
+
+        link.click();
+
+
+        link.remove();
+
+
+        setTimeout(
+            () =>
+                URL.revokeObjectURL(
+                    url
+                ),
+            1000
+        );
+
+
+        showToast(
+            "Diario exportado. 📤"
+        );
+
+    }
+);
+
+
+
+/* =========================================================
+   IMPORTAR DIARIO
+========================================================= */
+
+$("#importDiaryButton")
+.addEventListener(
+    "click",
+    () =>
+        $("#importDiaryInput")
+            .click()
+);
+
+
+$("#importDiaryInput")
+.addEventListener(
+    "change",
+    async event => {
+
+        const file =
+            event.target.files?.[0];
+
+
+        if(!file)
+            return;
+
+
+        try{
+
+            const text =
+                await file.text();
+
+
+            const data =
+                JSON.parse(text);
+
+
+            const incoming =
+                Array.isArray(data)
+                    ? data
+                    : data.entries;
+
+
+            if(
+                !Array.isArray(
+                    incoming
+                )
+            ){
+
+                throw new Error();
+
+            }
+
+
+            const normalized =
+                incoming
+                    .map(
+                        normalizeEntry
+                    )
+                    .filter(Boolean);
+
+
+            const replace =
+                confirm(
+                    "¿Quieres reemplazar tu diario actual?\n\n" +
+                    "Aceptar = reemplazar\n" +
+                    "Cancelar = combinar"
+                );
+
+
+            if(replace){
+
+                diaryEntries =
+                    normalized;
+
+            }else{
+
+                const ids =
+                    new Set(
+                        diaryEntries.map(
+                            entry =>
+                                entry.id
+                        )
+                    );
+
+
+                diaryEntries = [
+
+                    ...diaryEntries,
+
+                    ...normalized.filter(
+                        entry =>
+                            !ids.has(
+                                entry.id
+                            )
+                    )
+
+                ];
+
+            }
+
+
+            saveDiary();
+
+            renderEntries();
+
+
+            showToast(
+                "Diario importado. 📥"
+            );
+
+        }catch{
+
+            showToast(
+                "No se pudo importar el archivo."
+            );
+
+        }
+
+
+        event.target.value = "";
+
+    }
+);
+
+
+
+/* =========================================================
+   BORRAR DIARIO
+========================================================= */
+
+$("#clearDiary")
+.addEventListener(
+    "click",
+    () => {
+
+        if(
+            !diaryEntries.length
+        ){
+
+            showToast(
+                "Tu diario ya está vacío."
+            );
+
+            return;
+
+        }
+
+
+        const confirmed =
+            confirm(
+                "¿Seguro que quieres borrar TODOS los recuerdos?\n\n" +
+                "Esta acción no se puede deshacer."
+            );
+
+
+        if(!confirmed)
+            return;
+
+
+        diaryEntries = [];
+
+
+        saveDiary();
+
+        resetForm();
+
+        renderEntries();
+
+
+        showToast(
+            "El diario está vacío."
+        );
+
+    }
+);
+
+
+
+/* =========================================================
+   ESTRELLA MÁGICA
+========================================================= */
+
+let dreams = [];
+
+
+
+function loadDreams(){
+
+    try{
+
+        const raw =
+            localStorage.getItem(
+                STORAGE.dreams
+            );
+
+
+        const parsed =
+            raw
+                ? JSON.parse(raw)
+                : [];
+
+
+        dreams =
+            Array.isArray(parsed)
+                ? parsed
+                : [];
+
+    }catch{
+
+        dreams = [];
+
+    }
+
+}
+
+
+
+function saveDreams(){
+
+    localStorage.setItem(
+        STORAGE.dreams,
+        JSON.stringify(
+            dreams
+        )
+    );
+
+}
+
+
+
+function renderDreams(){
+
+    const list =
+        $("#dreamList");
+
+
+    $("#dreamsCountText")
+        .textContent =
+        `${dreams.length} ${
+            dreams.length === 1
+                ? "sueño guardado"
+                : "sueños guardados"
+        } en tu cielo ✨`;
+
+
+    $("#dreamCount")
+        .textContent =
+        dreams.length;
+
+
+    if(
+        !dreams.length
+    ){
+
+        list.innerHTML =
+            "";
+
+        return;
+
+    }
+
+
+    list.innerHTML =
+        dreams
+            .map(
+                dream => `
+
+                <div
+                    class="dream-item">
+
+                    <span>
+
+                        ⭐ ${escapeHTML(
+                            dream.text
+                        )}
+
+                    </span>
+
+
+                    <button
+                        class="dream-delete"
+                        data-dream-id="${escapeHTML(
+                            dream.id
+                        )}">
+
+                        ×
+
+                    </button>
+
+                </div>
+
+                `
+            )
+            .join("");
+
+}
+
+
+
+$("#saveDream")
+.addEventListener(
+    "click",
+    () => {
+
+        const input =
+            $("#dreamInput");
+
+
+        const text =
+            input.value.trim();
+
+
+        if(!text){
+
+            showToast(
+                "Escribe primero tu deseo. ⭐"
+            );
+
+
+            input.focus();
+
+            return;
+
+        }
+
+
+        dreams.unshift({
+
+            id:
+                typeof crypto !== "undefined" &&
+                crypto.randomUUID
+
+                    ? crypto.randomUUID()
+
+                    : `${Date.now()}-${Math.random()}`,
+
+            text,
+
+            createdAt:
+                Date.now()
+
+        });
+
+
+        saveDreams();
+
+        renderDreams();
+
+
+        input.value = "";
+
+
+        showToast(
+            "Tu sueño quedó guardado en la estrella. ⭐💜"
+        );
+
+
+        createParticles(
+            "⭐",
+            25
+        );
+
+    }
+);
+
+
+
+$("#dreamInput")
+.addEventListener(
+    "keydown",
+    event => {
+
+        if(
+            event.key === "Enter"
+        ){
+
+            event.preventDefault();
+
+            $("#saveDream")
+                .click();
+
+        }
+
+    }
+);
+
+
+
+$("#dreamList")
+.addEventListener(
+    "click",
+    event => {
+
+        const button =
+            event.target.closest(
+                "[data-dream-id]"
+            );
+
+
+        if(!button)
+            return;
+
+
+        const id =
+            button.dataset.dreamId;
+
+
+        dreams =
+            dreams.filter(
+                dream =>
+                    String(
+                        dream.id
+                    ) !==
+                    String(id)
+            );
+
+
+        saveDreams();
+
+        renderDreams();
+
+
+        showToast(
+            "La estrella dejó libre ese espacio. ✨"
+        );
+
+    }
+);
+
+
+
+/* =========================================================
+   GALERÍA CON INDEXEDDB
+========================================================= */
+
+const DB_NAME =
+    "LorePrincessGarden";
+
+
+const DB_VERSION =
+    1;
+
+
+const STORE_NAME =
+    "photos";
+
+
+
+function openGalleryDB(){
+
+    return new Promise(
+        (resolve,reject) => {
+
+            const request =
+                indexedDB.open(
+                    DB_NAME,
+                    DB_VERSION
+                );
+
+
+            request.onupgradeneeded =
+                event => {
+
+                    const database =
+                        event.target.result;
+
+
+                    if(
+                        !database
+                            .objectStoreNames
+                            .contains(
+                                STORE_NAME
+                            )
+                    ){
+
+                        database.createObjectStore(
+                            STORE_NAME,
+                            {
+                                keyPath:"id",
+                                autoIncrement:true
+                            }
+                        );
+
+                    }
+
+                };
+
+
+            request.onsuccess =
+                event => {
+
+                    db =
+                        event.target.result;
+
+
+                    resolve(db);
+
+                };
+
+
+            request.onerror =
+                () =>
+                    reject(
+                        request.error
+                    );
+
+        }
+    );
+
+}
+
+
+
+function addPhoto(file){
+
+    return new Promise(
+        (resolve,reject) => {
+
+            const transaction =
+                db.transaction(
+                    STORE_NAME,
+                    "readwrite"
+                );
+
+
+            const store =
+                transaction
+                    .objectStore(
+                        STORE_NAME
+                    );
+
+
+            const request =
+                store.add({
+
+                    file,
+
+                    createdAt:
+                        Date.now()
+
+                });
+
+
+            request.onsuccess =
+                () =>
+                    resolve();
+
+
+            request.onerror =
+                () =>
+                    reject(
+                        request.error
+                    );
+
+        }
+    );
+
+}
+
+
+
+function getPhotos(){
+
+    return new Promise(
+        (resolve,reject) => {
+
+            const transaction =
+                db.transaction(
+                    STORE_NAME,
+                    "readonly"
+                );
+
+
+            const request =
+                transaction
+                    .objectStore(
+                        STORE_NAME
+                    )
+                    .getAll();
+
+
+            request.onsuccess =
+                () => {
+
+                    resolve(
+                        request.result.sort(
+                            (a,b) =>
+                                b.createdAt -
+                                a.createdAt
+                        )
+                    );
+
+                };
+
+
+            request.onerror =
+                () =>
+                    reject(
+                        request.error
+                    );
+
+        }
+    );
+
+}
+
+
+
+function deletePhoto(id){
+
+    return new Promise(
+        (resolve,reject) => {
+
+            const transaction =
+                db.transaction(
+                    STORE_NAME,
+                    "readwrite"
+                );
+
+
+            const request =
+                transaction
+                    .objectStore(
+                        STORE_NAME
+                    )
+                    .delete(id);
+
+
+            request.onsuccess =
+                () =>
+                    resolve();
+
+
+            request.onerror =
+                () =>
+                    reject(
+                        request.error
+                    );
+
+        }
+    );
+
+}
+
+
+
+async function renderGallery(){
+
+    const gallery =
+        $("#gallery");
+
+
+    galleryObjectUrls.forEach(
+        url =>
+            URL.revokeObjectURL(
+                url
+            )
+    );
+
+
+    galleryObjectUrls = [];
+
+
+    const photos =
+        await getPhotos();
+
+
+    galleryPhotosCount =
+        photos.length;
+
+
+    updateStats();
+
+
+    if(
+        !photos.length
+    ){
+
+        gallery.innerHTML = `
+
+        <div
+            class="empty-state"
+            style="grid-column:1/-1;">
+
+            <div class="emoji">
+                📸
+            </div>
+
+            <h3>
+                Tu galería está esperando recuerdos
+            </h3>
+
+            <p style="margin-top:8px;">
+                Añade tus primeras fotografías.
+            </p>
+
+        </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    gallery.innerHTML =
+        "";
+
+
+    photos.forEach(
+        photo => {
+
+            const url =
+                URL.createObjectURL(
+                    photo.file
+                );
+
+
+            galleryObjectUrls.push(
+                url
+            );
+
+
+            const item =
+                document.createElement(
+                    "div"
+                );
+
+
+            item.className =
+                "photo";
+
+
+            item.innerHTML = `
+
+                <img
+                    src="${url}"
+                    alt="Fotografía guardada en el reino"
+                    loading="lazy">
+
+
+                <button
+                    class="photo-delete"
+                    data-photo-id="${photo.id}">
+
+                    ×
+
+                </button>
+
+            `;
+
+
+            gallery.appendChild(
+                item
+            );
+
+        }
+    );
+
+}
+
+
+
+$("#photoInput")
+.addEventListener(
+    "change",
+    async event => {
+
+        const files =
+            Array.from(
+                event.target.files || []
+            );
+
+
+        if(!files.length)
+            return;
+
+
+        try{
+
+            for(
+                const file
+                of files
+            ){
+
+                if(
+                    !file.type.startsWith(
+                        "image/"
+                    )
+                ){
+
+                    continue;
+
+                }
+
+
+                if(
+                    file.size >
+                    15 * 1024 * 1024
+                ){
+
+                    showToast(
+                        `${file.name} supera los 15 MB.`
+                    );
+
+                    continue;
+
+                }
+
+
+                await addPhoto(
+                    file
+                );
+
+            }
+
+
+            await renderGallery();
+
+
+            showToast(
+                "Fotografías añadidas. 📸"
+            );
+
+        }catch{
+
+            showToast(
+                "No se pudieron guardar las fotografías."
+            );
+
+        }
+
+
+        event.target.value =
+            "";
+
+    }
+);
+
+
+
+$("#gallery")
+.addEventListener(
+    "click",
+    async event => {
+
+        const button =
+            event.target.closest(
+                "[data-photo-id]"
+            );
+
+
+        if(!button)
+            return;
+
+
+        const id =
+            Number(
+                button.dataset.photoId
+            );
+
+
+        if(
+            !confirm(
+                "¿Eliminar esta fotografía?"
+            )
+        ){
+
+            return;
+
+        }
+
+
+        try{
+
+            await deletePhoto(
+                id
+            );
+
+
+            await renderGallery();
+
+
+            showToast(
+                "Fotografía eliminada."
+            );
+
+        }catch{
+
+            showToast(
+                "No se pudo eliminar."
+            );
+
+        }
+
+    }
+);
+
+
+
+/* =========================================================
+   ESTADÍSTICAS
+========================================================= */
+
+function updateStats(){
+
+    $("#memoryCount")
+        .textContent =
+        diaryEntries.length;
+
+
+    $("#favoriteCount")
+        .textContent =
+        diaryEntries.filter(
+            entry =>
+                entry.favorite
+        ).length;
+
+
+    $("#photoCount")
+        .textContent =
+        galleryPhotosCount;
+
+
+    $("#dreamCount")
+        .textContent =
+        dreams.length;
+
+}
+
+
+
+/* =========================================================
+   PARTÍCULAS
+========================================================= */
+
+function createParticles(
+    symbol="✨",
+    amount=20
+){
+
+    const symbols = [
+
+        symbol,
+
+        "✨",
+
+        "💜",
+
+        "⭐",
+
+        "🌸",
+
+        "❤️"
+
+    ];
+
+
+    for(
+        let i=0;
+        i<amount;
+        i++
+    ){
+
+        const particle =
+            document.createElement(
+                "div"
+            );
+
+
+        particle.className =
+            "particle";
+
+
+        particle.textContent =
+            symbols[
+                Math.floor(
+                    Math.random() *
+                    symbols.length
+                )
+            ];
+
+
+        particle.style.left =
+            `${Math.random()*100}vw`;
+
+
+        particle.style.top =
+            `${Math.random()*75+10}vh`;
+
+
+        particle.style.setProperty(
+            "--x",
+            `${(Math.random()-.5)*220}px`
+        );
+
+
+        particle.style.setProperty(
+            "--y",
+            `${(Math.random()-.5)*220}px`
+        );
+
+
+        particle.style.animationDelay =
+            `${Math.random()*.35}s`;
+
+
+        document.body.appendChild(
+            particle
+        );
+
+
+        setTimeout(
+            () =>
+                particle.remove(),
+            2300
+        );
+
+    }
+
+}
+
+
+
+/* =========================================================
+   MAGIA FLOTANTE
+========================================================= */
+
+let floatingStarted =
+    false;
+
+
+
+function startFloatingMagic(){
+
+    if(floatingStarted)
+        return;
+
+
+    floatingStarted =
+        true;
+
+
+    setInterval(
+        () => {
+
+            const item =
+                document.createElement(
+                    "div"
+                );
+
+
+            item.style.position =
+                "fixed";
+
+
+            item.style.bottom =
+                "-30px";
+
+
+            item.style.left =
+                `${Math.random()*100}vw`;
+
+
+            item.style.zIndex =
+                "1";
+
+
+            item.style.pointerEvents =
+                "none";
+
+
+            item.style.fontSize =
+                `${12+Math.random()*14}px`;
+
+
+            item.textContent =
+                Math.random() > .5
+                    ? "💜"
+                    : "✨";
+
+
+            item.style.opacity =
+                ".6";
+
+
+            item.animate(
+
+                [
+
+                    {
+                        transform:
+                            "translateY(0) rotate(0)",
+
+                        opacity:0
+                    },
+
+
+                    {
+                        transform:
+                            "translateY(-25vh) rotate(10deg)",
+
+                        opacity:.6
+                    },
+
+
+                    {
+                        transform:
+                            "translateY(-110vh) rotate(35deg)",
+
+                        opacity:0
+                    }
+
+                ],
+
+                {
+
+                    duration:
+                        6000 +
+                        Math.random()*3000,
+
+                    easing:
+                        "linear"
+
+                }
+
+            );
+
+
+            document.body.appendChild(
+                item
+            );
+
+
+            setTimeout(
+                () =>
+                    item.remove(),
+                9500
+            );
+
+        },
+
+        1900
+
+    );
+
+}
+
+
+
+/* =========================================================
+   REVEAL
+========================================================= */
+
+function setupReveal(){
+
+    const elements =
+        $$(".reveal");
+
+
+    if(
+        !("IntersectionObserver" in window)
+    ){
+
+        elements.forEach(
+            element =>
+                element.classList.add(
+                    "visible"
+                )
+        );
+
+
+        return;
+
+    }
+
+
+    const observer =
+        new IntersectionObserver(
+
+            entries => {
+
+                entries.forEach(
+                    entry => {
+
+                        if(
+                            !entry.isIntersecting
+                        ){
+
+                            return;
+
+                        }
+
+
+                        entry.target
+                            .classList
+                            .add(
+                                "visible"
+                            );
+
+
+                        observer.unobserve(
+                            entry.target
+                        );
+
+                    }
+                );
+
+            },
+
+            {
+                threshold:.12
+            }
+
+        );
+
+
+    elements.forEach(
+        element =>
+            observer.observe(
+                element
+            )
+    );
+
+}
+
+
+
+/* =========================================================
+   INICIALIZAR TODO
+========================================================= */
+
+async function initialize(){
+
+    loadDiary();
+
+    loadDreams();
+
+
+    renderEntries();
+
+    renderDreams();
+
+
+    setupReveal();
+
+
+    const savedMood =
+        localStorage.getItem(
+            STORAGE.mood
+        );
+
+
+    if(savedMood){
+
+        selectedMood =
+            savedMood;
+
+
+        const moodButton =
+            $$(".mood")
+                .find(
+                    button =>
+                        button.dataset.mood ===
+                        savedMood
+                );
+
+
+        if(moodButton){
+
+            moodButton
+                .classList
+                .add(
+                    "selected"
+                );
+
+        }
+
+    }
+
+
+    try{
+
+        await openGalleryDB();
+
+        await renderGallery();
+
+    }catch{
+
+        galleryPhotosCount =
+            0;
+
+        updateStats();
+
+    }
+
+}
+
+
+initialize();
+
+</script>
+
+</body>
+</html>
