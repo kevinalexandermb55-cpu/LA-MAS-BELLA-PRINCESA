@@ -1709,6 +1709,818 @@ footer strong{color:var(--text)}
         transition-duration:.001ms!important;
     }
 }
+/* =====================================================
+   BAÚL DE TESOROS
+===================================================== */
+
+.baul-tesoros-section {
+    width: 100%;
+    max-width: 1100px;
+    margin: 70px auto;
+    padding: 40px 20px;
+    box-sizing: border-box;
+    text-align: center;
+    position: relative;
+}
+
+.baul-titulo {
+    margin-bottom: 35px;
+}
+
+.baul-corona {
+    font-size: 48px;
+    animation: flotarCoronaLore 3s ease-in-out infinite;
+}
+
+.baul-titulo h2 {
+    margin: 10px 0;
+    font-size: clamp(28px, 5vw, 44px);
+    color: #f6d56a;
+    text-shadow:
+        0 0 10px rgba(246,213,106,.7),
+        0 0 25px rgba(123,44,191,.7);
+}
+
+.baul-titulo p {
+    max-width: 700px;
+    margin: 0 auto;
+    color: #fff;
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+.baul-titulo span {
+    display: block;
+    margin-top: 8px;
+    color: #f6d56a;
+    font-style: italic;
+}
+
+
+/* =====================================================
+   BAÚL
+===================================================== */
+
+.baul-contenedor {
+    position: relative;
+    min-height: 370px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.baul {
+    width: 270px;
+    height: 220px;
+    position: relative;
+    cursor: pointer;
+    transition: transform .3s ease;
+    z-index: 5;
+}
+
+.baul:hover {
+    transform: translateY(-8px) scale(1.03);
+}
+
+.baul:active {
+    transform: scale(.96);
+}
+
+
+/* cuerpo */
+
+.baul-cuerpo {
+    position: absolute;
+    left: 10px;
+    right: 10px;
+    bottom: 15px;
+    height: 125px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #6c2a18,
+            #a94b26,
+            #552014
+        );
+
+    border: 6px solid #d9a62e;
+    border-radius: 12px 12px 25px 25px;
+
+    box-shadow:
+        inset 0 0 20px rgba(0,0,0,.4),
+        0 15px 25px rgba(0,0,0,.35);
+}
+
+
+/* tapa */
+
+.baul-tapa {
+    position: absolute;
+    left: 10px;
+    right: 10px;
+    top: 20px;
+    height: 90px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #7b321c,
+            #b3532b,
+            #5b2114
+        );
+
+    border: 6px solid #d9a62e;
+    border-bottom: 0;
+    border-radius: 90px 90px 12px 12px;
+
+    transform-origin: bottom center;
+
+    transition:
+        transform 1s cubic-bezier(.2,.8,.2,1);
+    z-index: 7;
+}
+
+
+/* cerradura */
+
+.baul-cerradura {
+    position: absolute;
+    left: 50%;
+    bottom: -18px;
+    transform: translateX(-50%);
+    font-size: 30px;
+    transition: opacity .3s ease;
+}
+
+
+/* bandas */
+
+.baul-banda {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 15px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #8c6416,
+            #f6d56a,
+            #a97a1e
+        );
+}
+
+.baul-banda.izquierda {
+    left: 45px;
+}
+
+.baul-banda.derecha {
+    right: 45px;
+}
+
+.baul-placa {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    font-size: 28px;
+}
+
+
+/* luz */
+
+.baul-luz {
+    position: absolute;
+    width: 190px;
+    height: 130px;
+    left: 50%;
+    top: 55px;
+    transform: translateX(-50%);
+
+    background:
+        radial-gradient(
+            ellipse,
+            rgba(246,213,106,.95),
+            rgba(246,213,106,.35),
+            transparent 70%
+        );
+
+    opacity: 0;
+    filter: blur(4px);
+    z-index: 2;
+}
+
+
+/* abierto */
+
+.baul.abierto .baul-tapa {
+    transform: rotateX(-115deg);
+}
+
+.baul.abierto .baul-luz {
+    opacity: 1;
+    animation: luzBaulLore 1.3s ease-out;
+}
+
+.baul.abierto .baul-cerradura {
+    opacity: 0;
+}
+
+
+/* indicación */
+
+.baul-indicacion {
+    margin-top: 15px;
+    color: rgba(255,255,255,.85);
+    font-size: 15px;
+}
+
+
+/* =====================================================
+   CHISPAS
+===================================================== */
+
+.baul-chispas {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 20;
+}
+
+.chispa-lore {
+    position: absolute;
+    left: 50%;
+    top: 45%;
+    font-size: 20px;
+    animation: chispaLore 1.4s ease-out forwards;
+}
+
+
+/* =====================================================
+   TESOROS
+===================================================== */
+
+.tesoros-contenedor {
+    display: none;
+    opacity: 0;
+    margin-top: 15px;
+    transition: opacity .7s ease;
+}
+
+.tesoros-contenedor.visible {
+    display: block;
+    opacity: 1;
+}
+
+.elige-tesoro {
+    margin-bottom: 25px;
+    color: #f6d56a;
+    font-size: 18px;
+    font-style: italic;
+}
+
+
+/* grid */
+
+.tesoros-grid {
+    width: 100%;
+    max-width: 900px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns:
+        repeat(4, minmax(0,1fr));
+
+    gap: 18px;
+}
+
+
+/* tarjeta */
+
+.tesoro {
+    min-height: 175px;
+    padding: 20px 12px;
+
+    border: 1px solid rgba(246,213,106,.4);
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(123,44,191,.25),
+            rgba(50,15,70,.45)
+        );
+
+    color: white;
+
+    cursor: pointer;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease,
+        opacity .4s ease;
+}
+
+.tesoro:hover {
+    transform: translateY(-7px);
+    box-shadow:
+        0 0 25px rgba(246,213,106,.3);
+}
+
+.tesoro:active {
+    transform: scale(.95);
+}
+
+.tesoro-icono {
+    font-size: 48px;
+    margin-bottom: 10px;
+    filter:
+        drop-shadow(
+            0 0 10px rgba(246,213,106,.45)
+        );
+}
+
+.tesoro strong {
+    color: #f6d56a;
+    font-size: 16px;
+}
+
+.tesoro small {
+    margin-top: 7px;
+    color: rgba(255,255,255,.72);
+    line-height: 1.4;
+}
+
+
+/* descubierto */
+
+.tesoro.descubierto {
+    opacity: .42;
+    filter: grayscale(.25);
+}
+
+.tesoro.descubierto::after {
+    content: "✓ Descubierto";
+    display: block;
+    margin-top: 8px;
+    color: #f6d56a;
+    font-size: 12px;
+}
+
+
+/* =====================================================
+   MENSAJE
+===================================================== */
+
+.tesoro-mensaje-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+    box-sizing: border-box;
+
+    background: rgba(20,7,35,.75);
+    backdrop-filter: blur(8px);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        opacity .5s ease,
+        visibility .5s ease;
+}
+
+.tesoro-mensaje-overlay.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.tesoro-mensaje-card {
+    width: min(680px,100%);
+    max-height: 88vh;
+    overflow-y: auto;
+
+    padding: 35px 28px;
+
+    box-sizing: border-box;
+
+    border-radius: 28px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(70,27,96,.98),
+            rgba(35,12,55,.98)
+        );
+
+    border:
+        2px solid rgba(246,213,106,.6);
+
+    box-shadow:
+        0 0 35px rgba(246,213,106,.25),
+        0 0 80px rgba(123,44,191,.45);
+
+    transform: scale(.82) translateY(30px);
+
+    transition:
+        transform .6s cubic-bezier(.2,.8,.2,1);
+}
+
+.tesoro-mensaje-overlay.visible
+.tesoro-mensaje-card {
+    transform: scale(1) translateY(0);
+}
+
+.mensaje-destellos {
+    color: #f6d56a;
+    font-size: 25px;
+}
+
+.mensaje-tesoro-icono {
+    font-size: 70px;
+    margin: 10px 0;
+}
+
+.tesoro-mensaje-card h3 {
+    margin: 5px 0 12px;
+
+    color: #f6d56a;
+
+    font-size:
+        clamp(26px,5vw,38px);
+
+    text-shadow:
+        0 0 12px
+        rgba(246,213,106,.5);
+}
+
+.mensaje-linea {
+    color: #f6d56a;
+    margin-bottom: 20px;
+}
+
+.tesoro-mensaje-card p {
+    color: rgba(255,255,255,.94);
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+.mensaje-enamoramiento {
+    margin: 25px 0;
+
+    padding: 18px;
+
+    border-radius: 18px;
+
+    background:
+        rgba(123,44,191,.25);
+
+    border:
+        1px solid rgba(246,213,106,.35);
+
+    color: #f6d56a;
+
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+.cerrar-tesoro {
+    padding: 12px 20px;
+
+    border:
+        1px solid rgba(246,213,106,.5);
+
+    border-radius: 25px;
+
+    background:
+        rgba(123,44,191,.3);
+
+    color: white;
+
+    cursor: pointer;
+
+    transition: .3s ease;
+}
+
+.cerrar-tesoro:hover {
+    transform: translateY(-2px);
+    box-shadow:
+        0 0 18px
+        rgba(246,213,106,.25);
+}
+
+
+/* =====================================================
+   FINAL
+===================================================== */
+
+.tesoro-final-overlay {
+    position: fixed;
+    inset: 0;
+
+    z-index: 10000;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(123,44,191,.55),
+            rgba(20,7,35,.98) 70%
+        );
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition: .8s ease;
+}
+
+.tesoro-final-overlay.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.tesoro-final {
+    max-width: 700px;
+    text-align: center;
+}
+
+.final-estrellas {
+    font-size: 35px;
+}
+
+.final-corazon {
+    font-size: 85px;
+    margin: 20px 0;
+
+    animation:
+        corazonFinalLore
+        1.3s
+        ease-in-out
+        infinite;
+}
+
+.tesoro-final h3 {
+    color: #f6d56a;
+    font-size: clamp(28px,5vw,42px);
+}
+
+.tesoro-final p {
+    color: white;
+    font-size: 18px;
+}
+
+.final-frase {
+    margin: 25px auto;
+
+    padding: 25px;
+
+    border-radius: 25px;
+
+    background:
+        rgba(123,44,191,.25);
+
+    border:
+        1px solid rgba(246,213,106,.5);
+
+    color: white;
+
+    font-size:
+        clamp(20px,4vw,29px);
+
+    line-height: 1.6;
+
+    box-shadow:
+        0 0 30px
+        rgba(123,44,191,.35);
+}
+
+.tesoro-final button {
+    padding: 12px 22px;
+
+    border-radius: 25px;
+
+    border:
+        1px solid rgba(246,213,106,.5);
+
+    background:
+        rgba(123,44,191,.3);
+
+    color: white;
+
+    cursor: pointer;
+}
+
+
+/* =====================================================
+   ANIMACIONES
+===================================================== */
+
+@keyframes flotarCoronaLore {
+
+    0%,100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+
+}
+
+@keyframes luzBaulLore {
+
+    0% {
+        transform:
+            translateX(-50%)
+            scale(.3);
+        opacity: 0;
+    }
+
+    50% {
+        transform:
+            translateX(-50%)
+            scale(1.5);
+        opacity: 1;
+    }
+
+    100% {
+        transform:
+            translateX(-50%)
+            scale(1);
+        opacity: .9;
+    }
+
+}
+
+@keyframes chispaLore {
+
+    0% {
+        opacity: 0;
+        transform:
+            translate(-50%,-50%)
+            scale(.2);
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform:
+            translate(-50%,-50%)
+            translate(
+                var(--x),
+                var(--y)
+            )
+            scale(1.4)
+            rotate(180deg);
+    }
+
+}
+
+@keyframes corazonFinalLore {
+
+    0%,100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
+
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 850px) {
+
+    .tesoros-grid {
+        grid-template-columns:
+            repeat(2,minmax(0,1fr));
+    }
+
+}
+
+@media (max-width: 520px) {
+
+    .baul-tesoros-section {
+        padding:
+            30px 12px 45px;
+    }
+
+    .baul {
+        transform: scale(.9);
+    }
+
+    .baul:hover {
+        transform:
+            translateY(-5px)
+            scale(.92);
+    }
+
+    .tesoros-grid {
+        grid-template-columns:
+            repeat(2,minmax(0,1fr));
+
+        gap: 12px;
+    }
+
+    .tesoro {
+        min-height: 155px;
+        padding: 15px 8px;
+    }
+
+    .tesoro-icono {
+        font-size: 40px;
+    }
+
+    .tesoro strong {
+        font-size: 14px;
+    }
+
+    .tesoro small {
+        font-size: 11px;
+    }
+
+    .tesoro-mensaje-card {
+        padding:
+            28px 18px;
+    }
+
+    .tesoro-mensaje-card p {
+        font-size: 16px;
+    }
+
+}
+
+
+ /* =====================================================
+   X PARA CERRAR EL MENSAJE DEL TESORO
+===================================================== */
+
+.cerrar-x-tesoro {
+    position: absolute;
+    top: 14px;
+    right: 16px;
+
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(246,213,106,.45);
+    border-radius: 50%;
+
+    background: rgba(123,44,191,.25);
+
+    color: #f6d56a;
+    font-size: 27px;
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition:
+        transform .3s ease,
+        background .3s ease,
+        box-shadow .3s ease;
+}
+
+.cerrar-x-tesoro:hover {
+    transform: rotate(90deg) scale(1.1);
+
+    background: rgba(123,44,191,.5);
+
+    box-shadow:
+        0 0 18px
+        rgba(246,213,106,.4);
+}
+
+.cerrar-x-tesoro:active {
+    transform: scale(.9);
+}
 </style>
 </head>
 
@@ -2204,6 +3016,269 @@ footer strong{color:var(--text)}
 
 </section>
 
+<!-- =====================================================
+     LO BONITO QUE VIVE EN TI
+     BAÚL DE TESOROS
+===================================================== -->
+
+<section id="loBonitoQueViveEnTi" class="baul-tesoros-section">
+
+    <div class="baul-titulo">
+        <div class="baul-corona">👑</div>
+
+        <h2>Lo bonito que vive en ti</h2>
+
+        <p>
+            Nunca olvides las cosas bonitas que viven dentro de ti,
+            mi princesa. 👑💜
+        </p>
+
+        <span>
+            Porque yo jamás las olvidaré. ✨
+        </span>
+    </div>
+
+
+    <!-- BAÚL -->
+    <div class="baul-contenedor">
+
+        <div class="baul-chispas" id="baulChispas"></div>
+
+        <div
+            class="baul"
+            id="baulLore"
+            onclick="abrirBaulLore()"
+        >
+
+            <div class="baul-luz"></div>
+
+            <div class="baul-tapa">
+                <div class="baul-cerradura">🔐</div>
+            </div>
+
+            <div class="baul-cuerpo">
+
+                <div class="baul-banda izquierda"></div>
+
+                <div class="baul-banda derecha"></div>
+
+                <div class="baul-placa">
+                    ✨
+                </div>
+
+            </div>
+
+        </div>
+
+        <p class="baul-indicacion" id="baulIndicacion">
+            Toca el baúl, mi princesa... ✨
+        </p>
+
+    </div>
+
+
+    <!-- TESOROS -->
+    <div
+        class="tesoros-contenedor"
+        id="tesorosContenedor"
+    >
+
+        <p class="elige-tesoro">
+            Elige un tesoro, mi princesa... 👑💜
+        </p>
+
+
+        <div class="tesoros-grid">
+
+
+            <!-- 1 -->
+            <button
+                class="tesoro"
+                data-tesoro="corazon"
+                onclick="descubrirTesoroLore('corazon')"
+            >
+                <div class="tesoro-icono">❤️</div>
+                <strong>Tu corazón</strong>
+                <small>La ternura que vive en ti</small>
+            </button>
+
+
+            <!-- 2 -->
+            <button
+                class="tesoro"
+                data-tesoro="nobleza"
+                onclick="descubrirTesoroLore('nobleza')"
+            >
+                <div class="tesoro-icono">👑</div>
+                <strong>Tu nobleza</strong>
+                <small>La princesa que eres</small>
+            </button>
+
+
+            <!-- 3 -->
+            <button
+                class="tesoro"
+                data-tesoro="suenos"
+                onclick="descubrirTesoroLore('suenos')"
+            >
+                <div class="tesoro-icono">🌙</div>
+                <strong>Tus sueños</strong>
+                <small>Todo lo bonito que imaginas</small>
+            </button>
+
+
+            <!-- 4 -->
+            <button
+                class="tesoro"
+                data-tesoro="cuidar"
+                onclick="descubrirTesoroLore('cuidar')"
+            >
+                <div class="tesoro-icono">🌷</div>
+                <strong>Tu forma de cuidar</strong>
+                <small>Ese cariño tan tuyo</small>
+            </button>
+
+
+            <!-- 5 -->
+            <button
+                class="tesoro"
+                data-tesoro="sensibilidad"
+                onclick="descubrirTesoroLore('sensibilidad')"
+            >
+                <div class="tesoro-icono">🦋</div>
+                <strong>Tu sensibilidad</strong>
+                <small>La forma en que sientes</small>
+            </button>
+
+
+            <!-- 6 -->
+            <button
+                class="tesoro"
+                data-tesoro="valentia"
+                onclick="descubrirTesoroLore('valentia')"
+            >
+                <div class="tesoro-icono">👸♈️</div>
+                <strong>Tu valentía</strong>
+                <small>La fuerza de mi princesa de Aries</small>
+            </button>
+
+
+            <!-- 7 -->
+            <button
+                class="tesoro"
+                data-tesoro="sonrisa"
+                onclick="descubrirTesoroLore('sonrisa')"
+            >
+                <div class="tesoro-icono">😊</div>
+                <strong>Tu sonrisa</strong>
+                <small>La que ilumina mis días</small>
+            </button>
+
+
+            <!-- 8 -->
+            <button
+                class="tesoro"
+                data-tesoro="manera"
+                onclick="descubrirTesoroLore('manera')"
+            >
+                <div class="tesoro-icono">⭐</div>
+                <strong>Tu manera de ser</strong>
+                <small>Lo que te hace única</small>
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- MENSAJE -->
+    <div
+        class="tesoro-mensaje-overlay"
+        id="tesoroMensajeOverlay"
+    >
+
+        <div
+            class="tesoro-mensaje-card"
+            id="tesoroMensajeCard"
+        >
+            <button class="cerrar-x-tesoro" onclick="cerrarTesoroLore()" aria-label="Cerrar">
+    ×
+</button>
+            <div class="mensaje-destellos">
+                ✨ ✦ ✨
+            </div>
+
+            <div
+                class="mensaje-tesoro-icono"
+                id="mensajeTesoroIcono"
+            ></div>
+
+            <h3 id="mensajeTesoroTitulo"></h3>
+
+            <div class="mensaje-linea">
+                ✦ ───── ✧ ───── ✦
+            </div>
+
+            <p id="mensajeTesoroTexto"></p>
+
+            <div class="mensaje-enamoramiento">
+                ¿Ves por qué me enamoré de ti,
+                mi princesa? 👑💜
+            </div>
+
+            <button
+                class="cerrar-tesoro"
+                onclick="cerrarTesoroLore()"
+            >
+                Guardar este tesoro en mi corazón 💜
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- MENSAJE FINAL -->
+    <div
+        class="tesoro-final-overlay"
+        id="tesoroFinalOverlay"
+    >
+
+        <div class="tesoro-final">
+
+            <div class="final-estrellas">
+                ✨ ⭐ ✨
+            </div>
+
+            <div class="final-corazon">
+                💜
+            </div>
+
+            <h3>
+                Todos mis tesoros...
+            </h3>
+
+            <p>
+                Ahora sabes algunas de las cosas bonitas
+                que yo veo en ti.
+            </p>
+
+            <div class="final-frase">
+                Nunca olvides las cosas bonitas que
+                viven dentro de ti, mi princesa. 👑💜
+            </div>
+
+            <button
+                onclick="cerrarFinalTesoroLore()"
+            >
+                Volver a descubrirlos ✨
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
 
 <!-- VARITA MÁGICA -->
 <section id="varita">
@@ -4654,7 +5729,360 @@ function initialize(){
 
 
 initialize();
+/* =====================================================
+   TESOROS DE LA PRINCESA LORE
+===================================================== */
 
+const mensajesTesorosLore = {
+
+    corazon: {
+        icono: "❤️",
+        titulo: "Tu corazón",
+        mensaje:
+        "Hay algo en tu corazón que me parece absolutamente precioso, mi princesa. Esa forma tan bonita que tienes de sentir, de querer y de entregar cariño hace que estar cerca de ti se sienta como estar en un lugar donde todo es más bonito. Tu corazón tiene una ternura que no se puede fingir y que yo tuve la suerte de conocer. ❤️💜"
+    },
+
+    nobleza: {
+        icono: "👑",
+        titulo: "Tu nobleza",
+        mensaje:
+        "Tu nobleza no está solamente en ser una princesa, sino en la manera en que tratas a las personas, en lo que das sin esperar nada a cambio y en esos pequeños detalles que hacen que quienes te rodean se sientan importantes. Hay una nobleza en ti que se nota incluso cuando tú no la ves. Y yo, mi princesa, tengo la suerte de verla. 👑💜"
+    },
+
+    suenos: {
+        icono: "🌙",
+        titulo: "Tus sueños",
+        mensaje:
+        "Me encanta imaginar todos esos sueños que viven dentro de ti, mi princesa. Porque detrás de esa mirada hay una mujer que todavía sueña, imagina y espera cosas bonitas de la vida. Nunca dejes de perseguir aquello que hace feliz a tu corazón. Quiero verte cumplir cada uno de esos sueños y estar ahí para celebrar contigo cada uno de ellos. 🌙✨"
+    },
+
+    cuidar: {
+        icono: "🌷",
+        titulo: "Tu forma de cuidar",
+        mensaje:
+        "Tienes una manera muy tuya de cuidar, mi princesa. A veces está en una palabra, en una preocupación, en un pequeño detalle o simplemente en estar ahí. Quizá para ti sean cosas pequeñas, pero para mí significan muchísimo. Esa forma tuya de cuidar hace que uno quiera quedarse cerquita de ti y cuidar también de tu corazón. 🌷💜"
+    },
+
+    sensibilidad: {
+        icono: "🦋",
+        titulo: "Tu sensibilidad",
+        mensaje:
+        "Tu sensibilidad es una de esas cosas que hacen que seas tú y nadie más. Sientes profundamente, te importan las personas y puedes encontrar belleza en detalles que otros ni siquiera notan. Nunca pienses que sentir tanto es una debilidad, mi princesa. Para mí es una de las cosas más bonitas que viven dentro de ti. 🦋💜"
+    },
+
+    valentia: {
+        icono: "👸♈️",
+        titulo: "Tu valentía",
+        mensaje:
+        "Mi princesa de Aries, tienes una valentía preciosa. Esa fuerza con la que enfrentas lo que llega, esa determinación que llevas dentro y esa manera tan tuya de seguir adelante me hacen admirarte cada día más. Eres una princesa con un fuego muy especial en el corazón. ♈️💜"
+    },
+
+    sonrisa: {
+        icono: "😊",
+        titulo: "Tu sonrisa",
+        mensaje:
+        "Tu sonrisa tiene algo que todavía no sé explicar, mi princesa. Puede cambiar completamente un momento, iluminar un día y hacer que todo parezca un poquito más bonito. Y si algún día dudas de lo hermosa que es, recuerda que existe alguien que podría quedarse mirándola mucho más tiempo del que debería. 😊💜"
+    },
+
+    manera: {
+        icono: "⭐",
+        titulo: "Tu manera de ser",
+        mensaje:
+        "Y quizá este sea el tesoro más difícil de explicar, porque no se trata de una sola cosa. Me enamora tu manera de ser, tus detalles, tus gestos, tu forma de hablar, de reír, de sentir, de cuidar y hasta esas pequeñas cosas que probablemente tú ni siquiera notas. Me enamora la persona que eres, mi princesa. Y eso es algo que ningún tesoro podría reemplazar. ⭐💜"
+    }
+
+};
+
+
+/* =====================================================
+   ESTADO
+===================================================== */
+
+let tesorosLoreDescubiertos = new Set();
+
+let baulLoreAbierto = false;
+
+
+/* =====================================================
+   ABRIR BAÚL
+===================================================== */
+
+function abrirBaulLore() {
+
+    if (baulLoreAbierto) return;
+
+    const baul =
+        document.getElementById("baulLore");
+
+    baulLoreAbierto = true;
+
+    baul.classList.add("abierto");
+
+    document
+        .getElementById("baulIndicacion")
+        .textContent =
+        "Elige uno de los tesoros que veo en ti... 👑💜";
+
+    crearChispasBaulLore();
+
+
+    setTimeout(() => {
+
+        document
+            .getElementById("tesorosContenedor")
+            .classList.add("visible");
+
+    }, 850);
+
+}
+
+
+/* =====================================================
+   CHISPAS
+===================================================== */
+
+function crearChispasBaulLore() {
+
+    const contenedor =
+        document.getElementById("baulChispas");
+
+    contenedor.innerHTML = "";
+
+    const simbolos = [
+        "✨",
+        "✦",
+        "⭐",
+        "💫",
+        "💜",
+        "🌟"
+    ];
+
+
+    for (let i = 0; i < 38; i++) {
+
+        const chispa =
+            document.createElement("span");
+
+        chispa.className =
+            "chispa-lore";
+
+        chispa.textContent =
+            simbolos[
+                Math.floor(
+                    Math.random() *
+                    simbolos.length
+                )
+            ];
+
+
+        const x =
+            (Math.random() - .5) *
+            480;
+
+        const y =
+            (Math.random() - .5) *
+            350;
+
+
+        chispa.style.setProperty(
+            "--x",
+            x + "px"
+        );
+
+        chispa.style.setProperty(
+            "--y",
+            y + "px"
+        );
+
+
+        chispa.style.animationDelay =
+            (Math.random() * .4) + "s";
+
+
+        contenedor.appendChild(chispa);
+    }
+
+
+    setTimeout(() => {
+
+        contenedor.innerHTML = "";
+
+    }, 2000);
+
+}
+
+
+/* =====================================================
+   DESCUBRIR TESORO
+===================================================== */
+
+function descubrirTesoroLore(id) {
+
+    const tesoro =
+        mensajesTesorosLore[id];
+
+    if (!tesoro) return;
+
+
+    document
+        .getElementById("mensajeTesoroIcono")
+        .textContent =
+        tesoro.icono;
+
+
+    document
+        .getElementById("mensajeTesoroTitulo")
+        .textContent =
+        tesoro.titulo;
+
+
+    document
+        .getElementById("mensajeTesoroTexto")
+        .textContent =
+        tesoro.mensaje;
+
+
+    /* marcar como descubierto */
+
+    tesorosLoreDescubiertos.add(id);
+
+
+    const boton =
+        document.querySelector(
+            `.tesoro[data-tesoro="${id}"]`
+        );
+
+    if (boton) {
+
+        boton.classList.add(
+            "descubierto"
+        );
+
+    }
+
+
+    /* chispas especiales */
+
+    crearChispasBaulLore();
+
+
+    /* mostrar mensaje */
+
+    document
+        .getElementById(
+            "tesoroMensajeOverlay"
+        )
+        .classList.add("visible");
+
+}
+
+
+/* =====================================================
+   CERRAR MENSAJE
+===================================================== */
+
+function cerrarTesoroLore() {
+
+    document
+        .getElementById(
+            "tesoroMensajeOverlay"
+        )
+        .classList.remove("visible");
+
+
+    /* comprobar si ya descubrió los ocho */
+
+    if (
+        tesorosLoreDescubiertos.size >= 8
+    ) {
+
+        setTimeout(() => {
+
+            mostrarFinalTesorosLore();
+
+        }, 700);
+
+    }
+
+}
+
+
+/* =====================================================
+   FINAL
+===================================================== */
+
+function mostrarFinalTesorosLore() {
+
+    document
+        .getElementById(
+            "tesoroFinalOverlay"
+        )
+        .classList.add("visible");
+
+
+    crearChispasBaulLore();
+
+}
+
+
+/* =====================================================
+   CERRAR FINAL Y REINICIAR
+===================================================== */
+
+function cerrarFinalTesoroLore() {
+
+    document
+        .getElementById(
+            "tesoroFinalOverlay"
+        )
+        .classList.remove("visible");
+
+
+    tesorosLoreDescubiertos.clear();
+
+
+    document
+        .querySelectorAll(".tesoro")
+        .forEach(tesoro => {
+
+            tesoro.classList.remove(
+                "descubierto"
+            );
+
+        });
+
+
+    const tesoros =
+        document.getElementById(
+            "tesorosContenedor"
+        );
+
+    tesoros.classList.remove(
+        "visible"
+    );
+
+
+    const baul =
+        document.getElementById(
+            "baulLore"
+        );
+
+    baul.classList.remove(
+        "abierto"
+    );
+
+
+    baulLoreAbierto = false;
+
+
+    document
+        .getElementById(
+            "baulIndicacion"
+        )
+        .textContent =
+        "Toca el baúl, mi princesa... ✨";
+
+}
 </script>
 
 </body>
