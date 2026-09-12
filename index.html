@@ -2532,15 +2532,22 @@ footer strong{color:var(--text)}
     max-width: 700px;
     text-align: center;
     border-radius: 30px;
+
     background: linear-gradient(
         145deg,
         rgba(123, 44, 191, 0.18),
         rgba(255, 79, 154, 0.12)
     );
+
     border: 1px solid rgba(246, 213, 106, 0.35);
-    box-shadow: 0 15px 40px rgba(0,0,0,.25);
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,.25);
+
     overflow: hidden;
 }
+
+/* Título */
 
 .rosa-titulo {
     color: #f6d56a;
@@ -2549,13 +2556,17 @@ footer strong{color:var(--text)}
     margin-bottom: 8px;
 }
 
+/* Subtítulo */
+
 .rosa-subtitulo {
     color: #f9dce9;
     font-size: 15px;
     margin-bottom: 20px;
 }
 
-/* Zona de la rosa */
+/* =====================================================
+   🌹 ZONA DE LA ROSA
+   ===================================================== */
 
 .rosa-contenedor {
     position: relative;
@@ -2565,7 +2576,9 @@ footer strong{color:var(--text)}
     cursor: pointer;
 }
 
-/* Tallo */
+/* =====================================================
+   🌱 TALLO
+   ===================================================== */
 
 .rosa-tallo {
     position: absolute;
@@ -2573,15 +2586,19 @@ footer strong{color:var(--text)}
     height: 230px;
     left: 134px;
     top: 145px;
+
     border-radius: 20px;
+
     background: linear-gradient(
         90deg,
         #174d20,
         #58a85c,
         #174d20
     );
+
     transform-origin: top center;
     transform: scaleY(0);
+
     animation: rosaTallo 1.4s .3s forwards;
 }
 
@@ -2591,33 +2608,45 @@ footer strong{color:var(--text)}
     }
 }
 
-/* Hojas */
+/* =====================================================
+   🍃 HOJAS
+   ===================================================== */
 
 .rosa-hoja {
     position: absolute;
+
     width: 78px;
     height: 38px;
+
     background: linear-gradient(
         135deg,
         #63b85f,
         #185c26
     );
+
     border-radius: 100% 0 100% 0;
+
     opacity: 0;
 }
 
 .rosa-hoja.izq {
     left: 70px;
     top: 270px;
+
     transform: rotate(-25deg) scale(0);
-    animation: hojaIzquierda 1s 1.5s forwards;
+
+    animation:
+        hojaIzquierda 1s 1.5s forwards;
 }
 
 .rosa-hoja.der {
     left: 135px;
     top: 305px;
+
     transform: rotate(200deg) scale(0);
-    animation: hojaDerecha 1s 1.8s forwards;
+
+    animation:
+        hojaDerecha 1s 1.8s forwards;
 }
 
 @keyframes hojaIzquierda {
@@ -2634,14 +2663,19 @@ footer strong{color:var(--text)}
     }
 }
 
-/* Pétalos */
+/* =====================================================
+   🌹 PÉTALOS
+   ===================================================== */
 
 .rosa-petalo {
     position: absolute;
+
     width: 105px;
     height: 145px;
+
     left: 87px;
     top: 35px;
+
     border-radius: 65% 35% 65% 35%;
 
     background:
@@ -2659,10 +2693,11 @@ footer strong{color:var(--text)}
         0 6px 16px rgba(0,0,0,.3);
 
     opacity: 0;
+
     transform-origin: bottom center;
 }
 
-/* Apertura de cada pétalo */
+/* Pétalos */
 
 .rosa-p1 {
     z-index: 8;
@@ -2699,11 +2734,15 @@ footer strong{color:var(--text)}
     animation: rosaP7 2s 2.4s forwards;
 }
 
+/* Animaciones */
+
 @keyframes rosaP1 {
+
     from {
         opacity: 0;
         transform: scale(.15);
     }
+
     to {
         opacity: 1;
         transform: scale(.72);
@@ -2711,79 +2750,114 @@ footer strong{color:var(--text)}
 }
 
 @keyframes rosaP2 {
+
     from {
         opacity: 0;
         transform: rotate(45deg) scale(.15);
     }
+
     to {
         opacity: 1;
-        transform: rotate(45deg) scale(.9) translate(35px,5px);
+        transform:
+            rotate(45deg)
+            scale(.9)
+            translate(35px,5px);
     }
 }
 
 @keyframes rosaP3 {
+
     from {
         opacity: 0;
         transform: rotate(-45deg) scale(.15);
     }
+
     to {
         opacity: 1;
-        transform: rotate(-45deg) scale(.9) translate(-35px,5px);
+        transform:
+            rotate(-45deg)
+            scale(.9)
+            translate(-35px,5px);
     }
 }
 
 @keyframes rosaP4 {
+
     from {
         opacity: 0;
         transform: rotate(90deg) scale(.15);
     }
+
     to {
         opacity: 1;
-        transform: rotate(90deg) scale(.9) translate(15px,30px);
+        transform:
+            rotate(90deg)
+            scale(.9)
+            translate(15px,30px);
     }
 }
 
 @keyframes rosaP5 {
+
     from {
         opacity: 0;
         transform: rotate(-90deg) scale(.15);
     }
+
     to {
         opacity: 1;
-        transform: rotate(-90deg) scale(.9) translate(-15px,30px);
+        transform:
+            rotate(-90deg)
+            scale(.9)
+            translate(-15px,30px);
     }
 }
 
 @keyframes rosaP6 {
+
     from {
         opacity: 0;
         transform: rotate(135deg) scale(.15);
     }
+
     to {
         opacity: 1;
-        transform: rotate(135deg) scale(.75) translate(30px,25px);
+        transform:
+            rotate(135deg)
+            scale(.75)
+            translate(30px,25px);
     }
 }
 
 @keyframes rosaP7 {
+
     from {
         opacity: 0;
         transform: rotate(-135deg) scale(.15);
     }
+
     to {
         opacity: 1;
-        transform: rotate(-135deg) scale(.75) translate(-30px,25px);
+        transform:
+            rotate(-135deg)
+            scale(.75)
+            translate(-30px,25px);
     }
 }
 
-/* Centro de la rosa */
+/* =====================================================
+   🌹 CENTRO
+   ===================================================== */
 
 .rosa-centro {
     position: absolute;
+
     width: 75px;
     height: 75px;
+
     left: 102px;
     top: 68px;
+
     border-radius: 50%;
 
     background:
@@ -2799,30 +2873,45 @@ footer strong{color:var(--text)}
         0 5px 18px rgba(0,0,0,.4);
 
     z-index: 10;
+
     opacity: 0;
     transform: scale(.2);
-    animation: rosaCentro 1.2s 3s forwards;
+
+    animation:
+        rosaCentro 1.2s 3s forwards;
 }
 
 @keyframes rosaCentro {
+
     to {
         opacity: 1;
         transform: scale(1);
     }
 }
 
-/* Destellos */
+/* =====================================================
+   ✨ DESTELLOS
+   ===================================================== */
 
 .rosa-brillo {
     position: absolute;
+
     width: 10px;
     height: 10px;
+
     border-radius: 50%;
+
     background: white;
-    box-shadow: 0 0 15px white;
+
+    box-shadow:
+        0 0 15px white;
+
     opacity: 0;
+
     z-index: 20;
-    animation: rosaBrillo 2s 4s infinite;
+
+    animation:
+        rosaBrillo 2s 4s infinite;
 }
 
 .rosa-brillo.b1 {
@@ -2833,123 +2922,267 @@ footer strong{color:var(--text)}
 .rosa-brillo.b2 {
     left: 185px;
     top: 80px;
+
     animation-delay: 4.7s;
 }
 
 .rosa-brillo.b3 {
     left: 205px;
     top: 145px;
+
     animation-delay: 5.3s;
 }
 
 @keyframes rosaBrillo {
+
     0%,100% {
         opacity: 0;
         transform: scale(.2);
     }
+
     50% {
         opacity: 1;
         transform: scale(1.3);
     }
 }
 
-/* Mensaje */
+/* =====================================================
+   💜 MENSAJE
+   APARECE SOLO DESPUÉS DE ABRIR LA ROSA
+   ===================================================== */
 
 .rosa-mensaje {
     max-width: 540px;
+
     margin: -5px auto 20px;
+
     padding: 24px;
+
     border-radius: 22px;
 
     color: #fff4f7;
+
     font-family: Georgia, serif;
+
     font-size: 19px;
+
     line-height: 1.6;
 
-    background: rgba(35, 8, 45, .72);
-    border: 1px solid rgba(246,213,106,.35);
+    background:
+        rgba(35, 8, 45, .72);
+
+    border:
+        1px solid rgba(246,213,106,.35);
 
     box-shadow:
         0 10px 30px rgba(0,0,0,.25),
         inset 0 0 20px rgba(255,120,160,.08);
 
     opacity: 0;
+
+    visibility: hidden;
+
     transform: translateY(20px);
 
-    animation: rosaMensaje 1.8s 4s forwards;
+    animation: none;
 }
 
 .rosa-mensaje strong {
     display: block;
+
     color: #f6d56a;
+
     font-size: 24px;
+
     margin-bottom: 10px;
 }
 
 @keyframes rosaMensaje {
+
+    from {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(20px);
+    }
+
     to {
         opacity: 1;
+        visibility: visible;
         transform: translateY(0);
     }
 }
 
+/* =====================================================
+   🌹 BOTÓN — VOLVER A ABRIR MI ROSA
+   ===================================================== */
+
 .rosa-repetir {
-    border: none;
-    padding: 11px 22px;
+    position: relative;
+    overflow: hidden;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    border:
+        1px solid rgba(246,213,106,.65);
+
+    padding:
+        12px 25px;
+
     border-radius: 30px;
-    cursor: pointer;
 
     color: #fff;
-    background: linear-gradient(135deg,#7b2cbf,#c91872);
 
-    box-shadow: 0 5px 15px rgba(0,0,0,.25);
+    background:
+        linear-gradient(
+            135deg,
+            #7b2cbf,
+            #c91872,
+            #9d5cff
+        );
+
+    font-family:
+        "DM Sans",
+        sans-serif;
+
     font-size: 14px;
+
+    font-weight: 600;
+
+    letter-spacing: .2px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 6px 18px rgba(123,44,191,.35),
+        inset 0 1px 0 rgba(255,255,255,.18);
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease,
+        border-color .3s ease;
+}
+
+/* ✨ Brillo */
+
+.rosa-repetir::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -80%;
+
+    width: 45%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.35),
+            transparent
+        );
+
+    transform: skewX(-20deg);
+
+    transition:
+        left .7s ease;
+}
+
+.rosa-repetir:hover::before {
+    left: 130%;
 }
 
 .rosa-repetir:hover {
-    transform: scale(1.04);
+
+    transform:
+        translateY(-3px)
+        scale(1.04);
+
+    border-color:
+        #f6d56a;
+
+    box-shadow:
+        0 9px 25px rgba(123,44,191,.45),
+        0 0 16px rgba(246,213,106,.22),
+        inset 0 1px 0 rgba(255,255,255,.22);
 }
 
-@media(max-width:500px) {
+.rosa-repetir:active {
+    transform: scale(.97);
+}
 
-    .rosa-seccion {
-        margin: 25px 8px;
-        padding: 28px 8px 25px;
-        border-radius: 24px;
-    }
+/* =====================================================
+   💜 BOTÓN — CERRAR MENSAJITO
+   ===================================================== */
 
-    .rosa-titulo {
-        font-size: 22px;
-    }
+.rosa-cerrar {
+    position: relative;
+    overflow: hidden;
 
-    .rosa-subtitulo {
-        font-size: 13px;
-    }
+    display: block;
 
-    /* 🌹 Rosa más pequeña para celular */
-    .rosa-contenedor {
-        width: 220px;
-        height: 310px;
-        transform: scale(.82);
-        transform-origin: top center;
-        margin-bottom: -55px;
-    }
+    margin: 22px auto 0;
 
-    .rosa-mensaje {
-        margin-top: 0;
-        padding: 18px 15px;
-        font-size: 16px;
-        line-height: 1.5;
-    }
+    border:
+        1px solid rgba(246,213,106,.55);
 
-    .rosa-mensaje strong {
-        font-size: 21px;
-    }
+    padding:
+        10px 22px;
 
-    .rosa-repetir {
-        font-size: 13px;
-        padding: 10px 18px;
-    }
+    border-radius: 25px;
+
+    color: #fff;
+
+    background:
+        linear-gradient(
+            135deg,
+            #9d5cff,
+            #7b2cbf,
+            #c91872
+        );
+
+    font-family:
+        "DM Sans",
+        sans-serif;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 5px 15px rgba(123,44,191,.3),
+        inset 0 1px 0 rgba(255,255,255,.18);
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease,
+        border-color .3s ease;
+}
+
+.rosa-cerrar:hover {
+
+    transform:
+        translateY(-2px)
+        scale(1.03);
+
+    border-color:
+        #f6d56a;
+
+    box-shadow:
+        0 8px 20px rgba(123,44,191,.4),
+        0 0 14px rgba(246,213,106,.2);
+}
+
+.rosa-cerrar:active {
+    transform: scale(.96);
 }
 </style>
 </head>
@@ -3752,18 +3985,23 @@ footer strong{color:var(--text)}
 
     <div class="rosa-mensaje">
 
-        <strong>Para mi princesa 💜</strong>
+    <strong>Para mi princesa 💜</strong>
 
-        ¿Quién es mi princesa pechocha,
-        a la que no me canso ni me cansaré
-        de amar, cuidar y hacer sonreír?
+    ¿Quién es mi princesa pechocha,
+    a la que no me canso ni me cansaré
+    de amar, cuidar y hacer sonreír?
 
-        <br>
+    <br>
 
-        Tú, mi dulcecito. ❤️
+    Tú, mi dulcecito. ❤️
 
-    </div>
+    <button
+        class="rosa-cerrar"
+        onclick="cerrarMensajeRosa()">
+        💜 Cerrar mensajito
+    </button>
 
+</div>
     <button class="rosa-repetir" onclick="abrirRosa()">
         🌹 Volver a abrir mi rosa
     </button>
@@ -6585,6 +6823,7 @@ function abrirRosa() {
 
     if (!seccion) return;
 
+    /* Elementos que se deben reiniciar */
     const elementos = [
         ".rosa-tallo",
         ".rosa-hoja.izq",
@@ -6612,44 +6851,184 @@ function abrirRosa() {
 
     });
 
-    /* Reiniciar las animaciones */
+
+    /* =================================================
+       🔄 REINICIAR ANIMACIONES
+       ================================================= */
+
     void seccion.offsetWidth;
 
-    seccion.querySelector(".rosa-tallo").style.animation =
-        "rosaTallo 1.4s .3s forwards";
 
-    seccion.querySelector(".rosa-hoja.izq").style.animation =
-        "hojaIzquierda 1s 1.5s forwards";
+    /* =================================================
+       🌿 TALLO
+       ================================================= */
 
-    seccion.querySelector(".rosa-hoja.der").style.animation =
-        "hojaDerecha 1s 1.8s forwards";
+    const tallo =
+        seccion.querySelector(".rosa-tallo");
 
-    seccion.querySelector(".rosa-p1").style.animation =
-        "rosaP1 2s 1.2s forwards";
+    if (tallo) {
+        tallo.style.animation =
+            "rosaTallo 1.4s .3s forwards";
+    }
 
-    seccion.querySelector(".rosa-p2").style.animation =
-        "rosaP2 2s 1.4s forwards";
 
-    seccion.querySelector(".rosa-p3").style.animation =
-        "rosaP3 2s 1.6s forwards";
+    /* =================================================
+       🍃 HOJA IZQUIERDA
+       ================================================= */
 
-    seccion.querySelector(".rosa-p4").style.animation =
-        "rosaP4 2s 1.8s forwards";
+    const hojaIzq =
+        seccion.querySelector(".rosa-hoja.izq");
 
-    seccion.querySelector(".rosa-p5").style.animation =
-        "rosaP5 2s 2s forwards";
+    if (hojaIzq) {
+        hojaIzq.style.animation =
+            "hojaIzquierda 1s 1.5s forwards";
+    }
 
-    seccion.querySelector(".rosa-p6").style.animation =
-        "rosaP6 2s 2.2s forwards";
 
-    seccion.querySelector(".rosa-p7").style.animation =
-        "rosaP7 2s 2.4s forwards";
+    /* =================================================
+       🍃 HOJA DERECHA
+       ================================================= */
 
-    seccion.querySelector(".rosa-centro").style.animation =
-        "rosaCentro 1.2s 3s forwards";
+    const hojaDer =
+        seccion.querySelector(".rosa-hoja.der");
 
-    seccion.querySelector(".rosa-mensaje").style.animation =
+    if (hojaDer) {
+        hojaDer.style.animation =
+            "hojaDerecha 1s 1.8s forwards";
+    }
+
+
+    /* =================================================
+       🌹 PÉTALOS
+       ================================================= */
+
+    const p1 =
+        seccion.querySelector(".rosa-p1");
+
+    if (p1) {
+        p1.style.animation =
+            "rosaP1 2s 1.2s forwards";
+    }
+
+
+    const p2 =
+        seccion.querySelector(".rosa-p2");
+
+    if (p2) {
+        p2.style.animation =
+            "rosaP2 2s 1.4s forwards";
+    }
+
+
+    const p3 =
+        seccion.querySelector(".rosa-p3");
+
+    if (p3) {
+        p3.style.animation =
+            "rosaP3 2s 1.6s forwards";
+    }
+
+
+    const p4 =
+        seccion.querySelector(".rosa-p4");
+
+    if (p4) {
+        p4.style.animation =
+            "rosaP4 2s 1.8s forwards";
+    }
+
+
+    const p5 =
+        seccion.querySelector(".rosa-p5");
+
+    if (p5) {
+        p5.style.animation =
+            "rosaP5 2s 2s forwards";
+    }
+
+
+    const p6 =
+        seccion.querySelector(".rosa-p6");
+
+    if (p6) {
+        p6.style.animation =
+            "rosaP6 2s 2.2s forwards";
+    }
+
+
+    const p7 =
+        seccion.querySelector(".rosa-p7");
+
+    if (p7) {
+        p7.style.animation =
+            "rosaP7 2s 2.4s forwards";
+    }
+
+
+    /* =================================================
+       💗 CENTRO DE LA ROSA
+       ================================================= */
+
+    const centro =
+        seccion.querySelector(".rosa-centro");
+
+    if (centro) {
+        centro.style.animation =
+            "rosaCentro 1.2s 3s forwards";
+    }
+
+
+    /* =================================================
+       💜 MENSAJE
+       ================================================= */
+
+    const mensaje =
+        seccion.querySelector(".rosa-mensaje");
+
+    if (!mensaje) return;
+
+
+    /* Primero ocultamos el mensaje */
+    mensaje.style.animation = "none";
+    mensaje.style.opacity = "0";
+    mensaje.style.visibility = "hidden";
+    mensaje.style.transform =
+        "translateY(20px)";
+
+
+    /* Reiniciar la animación del mensaje */
+    void mensaje.offsetWidth;
+
+
+    /* Aparece cuando la rosa ya terminó de abrir */
+    mensaje.style.animation =
         "rosaMensaje 1.8s 4s forwards";
+}
+
+
+/* =====================================================
+   💜 CERRAR MENSAJITO
+   ===================================================== */
+
+function cerrarMensajeRosa() {
+
+    const mensaje =
+        document.querySelector(
+            "#rosa-princesa .rosa-mensaje"
+        );
+
+    if (!mensaje) return;
+
+
+    /* Detener cualquier animación */
+    mensaje.style.animation = "none";
+
+
+    /* Ocultar mensaje */
+    mensaje.style.opacity = "0";
+    mensaje.style.visibility = "hidden";
+    mensaje.style.transform =
+        "translateY(20px)";
 }
 </script>
 
