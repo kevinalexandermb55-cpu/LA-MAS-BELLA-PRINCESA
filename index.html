@@ -1839,6 +1839,7 @@ footer strong{color:var(--text)}
 
     transition:
         transform 1s cubic-bezier(.2,.8,.2,1);
+
     z-index: 7;
 }
 
@@ -2100,6 +2101,10 @@ footer strong{color:var(--text)}
     transition:
         opacity .5s ease,
         visibility .5s ease;
+
+    /* Evita que el fondo se desplace en celular */
+    overflow: hidden;
+    overscroll-behavior: contain;
 }
 
 .tesoro-mensaje-overlay.visible {
@@ -2110,7 +2115,10 @@ footer strong{color:var(--text)}
 .tesoro-mensaje-card {
     width: min(680px,100%);
     max-height: 88vh;
+
+    /* Desplazamiento interno */
     overflow-y: auto;
+    overflow-x: hidden;
 
     padding: 35px 28px;
 
@@ -2136,6 +2144,14 @@ footer strong{color:var(--text)}
 
     transition:
         transform .6s cubic-bezier(.2,.8,.2,1);
+
+    /* Mejor desplazamiento táctil */
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+    touch-action: pan-y;
+
+    /* Evita que el contenido se salga */
+    scrollbar-width: thin;
 }
 
 .tesoro-mensaje-overlay.visible
@@ -2422,6 +2438,7 @@ footer strong{color:var(--text)}
 
 }
 
+
 @media (max-width: 520px) {
 
     .baul-tesoros-section {
@@ -2463,9 +2480,45 @@ footer strong{color:var(--text)}
         font-size: 11px;
     }
 
+
+    /* =================================================
+       MENSAJE EN CELULAR
+       Solo mejoramos el desplazamiento
+    ================================================= */
+
+    .tesoro-mensaje-overlay {
+        padding: 20px 12px;
+
+        overflow: hidden;
+        overscroll-behavior: contain;
+    }
+
     .tesoro-mensaje-card {
+        width: 100%;
+
+        /*
+         * La tarjeta sigue centrada,
+         * pero tiene una altura segura
+         * para poder deslizar su contenido.
+         */
+        max-height: 82vh;
+
+        overflow-y: auto;
+        overflow-x: hidden;
+
         padding:
             28px 18px;
+
+        box-sizing: border-box;
+
+        /*
+         * Deslizamiento táctil suave
+         */
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior: contain;
+        touch-action: pan-y;
+
+        scrollbar-width: thin;
     }
 
     .tesoro-mensaje-card p {
@@ -2475,7 +2528,7 @@ footer strong{color:var(--text)}
 }
 
 
- /* =====================================================
+/* =====================================================
    X PARA CERRAR EL MENSAJE DEL TESORO
 ===================================================== */
 
