@@ -3237,6 +3237,50 @@ footer strong{color:var(--text)}
 .rosa-cerrar:active {
     transform: scale(.96);
 }
+/* ==========================================
+   ROSA — TAMAÑO ADAPTADO PARA CELULAR
+========================================== */
+
+@media (max-width: 520px) {
+
+    .rosa-seccion {
+        padding: 20px 12px;
+    }
+
+    /* Rosa más pequeña */
+    .rosa-seccion .rosa {
+        transform: scale(.72);
+        margin: -35px auto;
+    }
+
+    /* Cuadro/mensaje de la rosa */
+    .rosa-mensaje {
+        width: 90%;
+        max-width: 320px;
+        margin: 20px auto;
+        padding: 20px 16px;
+
+        box-sizing: border-box;
+        border-radius: 20px;
+
+        font-size: 15px;
+        line-height: 1.6;
+    }
+
+    .rosa-mensaje h3 {
+        font-size: 22px;
+    }
+
+    .rosa-mensaje p {
+        font-size: 15px;
+        line-height: 1.6;
+    }
+
+    .rosa-mensaje button {
+        font-size: 14px;
+        padding: 10px 16px;
+    }
+}
 </style>
 </head>
 
